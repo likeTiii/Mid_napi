@@ -4,13 +4,13 @@
       {
         "name": "default",
         "material": {
-          "certpath": "C:/Users/598/.ohos/config/openharmony/default_Mid_napi_m0SKyTh4sjLsheOjnmN3JvUh3TvWyBx5foBaj6bIzNY=.cer",
-          "storePassword": "0000001BA9F3FD6C88E0487FD6050F5059EB062F5944D2E75D90AC4AEA17DFD034912B1C17344458C3356F",
+          "certpath": "C:/Users/ZYF/.ohos/config/openharmony/default_Mid_napi_NQJnyNBuv0-t5WfePZETFsn-exU4DQYanmGBZb8ZE70=.cer",
+          "storePassword": "0000001B8C37372C7846DA93983716E79F322400ADC58FE2B1CDB82A14D48BBD5CD48874B98FE2FFDF3CE9",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001B58EDA8E7528A0A896225683E0C1346F28720A9F6AA0862B7BD16000D12E31EEC91C11D65E0F8C3",
-          "profile": "C:/Users/598/.ohos/config/openharmony/default_Mid_napi_m0SKyTh4sjLsheOjnmN3JvUh3TvWyBx5foBaj6bIzNY=.p7b",
+          "keyPassword": "0000001B12E98C46CDD0B2B4FED5BD9D59245CAD9C0FF9912F011B896168855D2B0E46EE49B17E9FB0AF0A",
+          "profile": "C:/Users/ZYF/.ohos/config/openharmony/default_Mid_napi_NQJnyNBuv0-t5WfePZETFsn-exU4DQYanmGBZb8ZE70=.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "C:/Users/598/.ohos/config/openharmony/default_Mid_napi_m0SKyTh4sjLsheOjnmN3JvUh3TvWyBx5foBaj6bIzNY=.p12"
+          "storeFile": "C:/Users/ZYF/.ohos/config/openharmony/default_Mid_napi_NQJnyNBuv0-t5WfePZETFsn-exU4DQYanmGBZb8ZE70=.p12"
         }
       }
     ],

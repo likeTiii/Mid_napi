@@ -17,7 +17,7 @@ struct Index {
   @State selectedBagFile: string = '';
   TAG: string = "MasterConfigCopy";
   filesDir: string = '';
-
+  @State fileOutputContent: string = '';
 
   runCommand(index:number) {
     let context = getContext(this) as common.UIAbilityContext;
@@ -51,13 +51,7 @@ struct Index {
     let context = getContext(this) as common.UIAbilityContext;
     this.filesDir = context.filesDir;
     //创建文件
-    async () => {
-      try {
-        this.results[0] = await FileUtils.createFile(this.filesDir);
-      } catch (e) {
-        this.results[0] = e.message;
-      }
-    }
+    FileUtils.createFile(this.filesDir);
     //获取文件列表
     this.bagFileList = FileUtils.getFileList(this.filesDir);
   }
@@ -105,6 +99,7 @@ struct Index {
           .backgroundColor(Color.Gray)
         }
       }, (value: string, index: number) => index.toString()) // key 生成
+
       Row(){
         Select(
           this.bagFileList                      // 原始数组
@@ -122,20 +117,20 @@ struct Index {
         Button("read file")
           .width('20%')
           .onClick(()=>{
-              FileUtils.readFile(this.filesDir, this.selectedBagFile);
+              this.fileOutputContent = FileUtils.readFile(this.filesDir, this.selectedBagFile);
           })
       }
 
 
-      // Scroll() {
-      //   Text(this.results[0])
-      //     .fontSize(16)
-      //     .textAlign(TextAlign.Start)
-      //     .width('100%')
-      // }
-      // .height('50%')
-      // .width('100%')
-      // .backgroundColor(Color.Gray)
+      Scroll() {
+        Text(this.fileOutputContent)
+          .fontSize(16)
+          .textAlign(TextAlign.Start)
+          .width('100%')
+      }
+      .height('20%')
+      .width('100%')
+      .backgroundColor(Color.Gray)
     }.padding('5%')
   }
 

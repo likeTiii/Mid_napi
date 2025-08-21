@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_definitions(_GLIBCXX_USE_CXX11_ABI=1)
 
 set(NATIVERENDER_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
-set(OHOS_SDK_PATH "D:/study/y1/openharmony/ohos-sdk/11")
+set(OHOS_SDK_PATH "D:/Code/OpenHarmony/SDK/11")
 set(CMAKE_SYSROOT "${OHOS_SDK_PATH}/native/sysroot")
 set(CLANG_PATH "${OHOS_SDK_PATH}/native/llvm/bin/clang++")
 set(CMAKE_TOOLCHAIN_FILE "${OHOS_SDK_PATH}/native/build/cmake/ohos.toolchain.cmake")
