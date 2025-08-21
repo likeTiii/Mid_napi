@@ -1,0 +1,174 @@
+import hilog from '@ohos.hilog';
+import nativeModule from 'libentry.so';
+import common from '@ohos.app.ability.common';
+import fs from '@ohos.file.fs';
+import { BusinessError } from '@ohos.base';
+//文件相关接口
+import * as FileUtils from '../utils/FileUtils'
+
+
+@Entry
+@Component
+struct Index {
+  @State inputs: string[] = ["",""];
+  @State results: string[] = ["",""];
+  @State message2: string = 'Test Node-API nativeCallArkTS result: ';
+  @State bagFileList: string[] = [];
+  @State selectedBagFile: string = '';
+  TAG: string = "MasterConfigCopy";
+  filesDir: string = '';
+
+
+  runCommand(index:number) {
+    let context = getContext(this) as common.UIAbilityContext;
+    let fileDir = context.filesDir; // 应用沙箱 files 目录
+    let recordPath = fileDir + "/bag_records";
+
+    try{
+      try {
+        fs.mkdirSync(recordPath);
+      } catch (err) {
+        // 如果目录已存在会抛异常，这里忽略
+        console.info("recordPath already exists: " + recordPath);
+      }
+      let input=this.inputs[index];
+      let result = nativeModule.runCommand(input,recordPath);
+      if (typeof result === 'string'){
+        this.results[index] = result ; //显示内容
+      }
+      else {
+        this.results[index] = "Running...";
+      }
+      //this.resultText = nativeModule.runCommand(input);
+    } catch (e) {
+      this.results[index] = "Error: " + e.message;
+    }
+  }
+
+
+  aboutToAppear() {
+    //获取沙箱路径
+    let context = getContext(this) as common.UIAbilityContext;
+    this.filesDir = context.filesDir;
+    //创建文件
+    async () => {
+      try {
+        this.results[0] = await FileUtils.createFile(this.filesDir);
+      } catch (e) {
+        this.results[0] = e.message;
+      }
+    }
+    //获取文件列表
+    this.bagFileList = FileUtils.getFileList(this.filesDir);
+  }
+
+  build(){
+    Column(
+      { space: 20}){
+      Text('Run Command')
+        .fontSize(20)
+        .margin(10)
+      // Row(){
+      //   TextInput({ placeholder: 'Enter Command: ', text: this.inputText})
+      //     .width('70%')
+      //     .onChange((value: string) => {
+      //       this.inputText = value;
+      //     })
+      //
+      //   Button("Run Command")
+      //     .onClick(() => this.runCommand(this.inputText))
+      //     .width('20%')
+      // }
+      // 循环渲染多个输入框和按钮
+      ForEach(this.inputs, (value: string, index: number) => {
+        Column({ space: 10 }) {
+          Row() {
+            TextInput({ placeholder: 'Enter Command: ', text: this.inputs[index] })
+              .width('70%')
+              .onChange((val: string) => {
+                this.inputs[index] = val;
+              })
+
+            Button("Run")
+              .onClick(() => this.runCommand(index))
+              .width('20%')
+          }
+
+          Scroll() {
+            Text(this.results[index])
+              .fontSize(16)
+              .textAlign(TextAlign.Start)
+              .width('100%')
+          }
+          .height('20%')
+          .width('100%')
+          .backgroundColor(Color.Gray)
+        }
+      }, (value: string, index: number) => index.toString()) // key 生成
+      Row(){
+        Select(
+          this.bagFileList                      // 原始数组
+            .map((v: string)                    // 遍历数组，v 是当前文件名
+              : SelectOption=> ({ value: v })   // 声明返回值类型， "SelectOption”把字符串 v 变成对象 { value: v }
+            )
+        )
+          .onSelect((index: number) => {
+            this.selectedBagFile = this.bagFileList[index];
+
+          })
+          .backgroundColor(Color.Grey)
+          .width('70%')
+
+        Button("read file")
+          .width('20%')
+          .onClick(()=>{
+              FileUtils.readFile(this.filesDir, this.selectedBagFile);
+          })
+      }
+
+
+      // Scroll() {
+      //   Text(this.results[0])
+      //     .fontSize(16)
+      //     .textAlign(TextAlign.Start)
+      //     .width('100%')
+      // }
+      // .height('50%')
+      // .width('100%')
+      // .backgroundColor(Color.Gray)
+    }.padding('5%')
+  }
+
+}
+// import common from '@ohos.app.ability.common';
+// import UIAbility from '@ohos.app.ability.UIAbility';
+//
+// @Entry
+// @Component
+// struct Index {
+//   cacheDir: string = '';
+//   filesDir: string = '';
+//
+//   async aboutToAppear() {
+//     let context = getContext(this) as common.UIAbilityContext;
+//     try {
+//       let applicationContext = context.getApplicationContext();
+//       this.cacheDir = applicationContext.cacheDir;
+//       this.filesDir = applicationContext.filesDir;
+//       console.log("cacheDir = " + this.cacheDir);
+//       console.log("filesDir = " + this.filesDir);
+//     } catch (err) {
+//       console.error(`Failed to get path: ${err.message}`);
+//     }
+//   }
+//
+//   build() {
+//     Column() {
+//       Text('Cache Dir:')
+//       Text(this.cacheDir).fontSize(14).margin(10)
+//       Text('Files Dir:')
+//       Text(this.filesDir).fontSize(14).margin(10)
+//     }
+//     .padding(20)
+//   }
+// }
