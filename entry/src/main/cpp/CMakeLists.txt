@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_definitions(_GLIBCXX_USE_CXX11_ABI=1)
 
-set(NATIVERENDER_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
+
 set(OHOS_SDK_PATH "D:/Code/OpenHarmony/SDK/11")
 set(CMAKE_SYSROOT "${OHOS_SDK_PATH}/native/sysroot")
 set(CLANG_PATH "${OHOS_SDK_PATH}/native/llvm/bin/clang++")
@@ -19,13 +19,14 @@ if(DEFINED PACKAGE_FIND_FILE)
     include(${PACKAGE_FIND_FILE})
 endif()
 
-include_directories(${NATIVERENDER_ROOT_PATH}
-                    ${NATIVERENDER_ROOT_PATH}/include
+include_directories(
                     ${OHOS_SDK_PATH}/native/sysroot/usr/include
                     ${CMAKE_CURRENT_SOURCE_DIR}/Middleware
                     ${CMAKE_CURRENT_SOURCE_DIR}/Middleware/src/Node/include
                     ${CMAKE_CURRENT_SOURCE_DIR}/Middleware/src/Util/src
                     ${CMAKE_CURRENT_SOURCE_DIR}/Middleware/src/Msgs/src
+                    ${CMAKE_CURRENT_SOURCE_DIR}/common
+                    ${CMAKE_CURRENT_SOURCE_DIR}/render
                     )
 
 #链接库
@@ -50,9 +51,17 @@ set(MIDDLEWARE_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/Middleware/src/Node/src/Timer.cpp
     ${PROTO_SRCS}
 )
+set(OPENGL_SRC
+    ${CMAKE_CURRENT_SOURCE_DIR}/napi_init.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/manager/plugin_manager.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/render/egl_core.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/render/plugin_render.cpp
+)
 
 add_library(entry SHARED
     ${MIDDLEWARE_SRC}
+    ${OPENGL_SRC}
+
 )
 
 #target_compile_options(entry PRIVATE "-stdlib=libc++")
@@ -71,5 +80,20 @@ target_link_libraries(entry PUBLIC libace_napi.z.so
                         #middleware_node_shm
                         #middleware_node_hmw
                         )
+
+
+
+# link OpenHarmony native library （Use OpenGL）
+target_link_libraries(entry PUBLIC EGL)
+target_link_libraries(entry PUBLIC GLESv3)
+target_link_libraries(entry PUBLIC hilog_ndk.z)
+target_link_libraries(entry PUBLIC ace_ndk.z)
+target_link_libraries(entry PUBLIC ace_napi.z)
+target_link_libraries(entry PUBLIC libc++.a)
+target_link_libraries(entry PUBLIC z)
+target_link_libraries(entry PUBLIC uv)
+target_link_libraries(entry PUBLIC libace_napi.z.so)
+
+
 
 target_link_options(entry PRIVATE "-Wl,--no-as-needed")

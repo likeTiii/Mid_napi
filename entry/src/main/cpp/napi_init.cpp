@@ -13,10 +13,15 @@
 #include <spdlog/spdlog.h>
 #include "src/Util/src/napi_util.h"
 #include "hilog/log.h"
+
+#include "common/common.h"
+#include "manager/plugin_manager.h"
+
 #undef LOG_DOMAIN
 #undef LOG_TAG
 #define LOG_DOMAIN 0x3200
 #define LOG_TAG "NAPI"
+
 
 namespace fs = std::filesystem;
 
@@ -92,13 +97,18 @@ napi_value RunCommand(napi_env env, napi_callback_info info) {
     return result;
 }
 
+
+
 //模块初始化,实现ArkTS接口与C++接口的绑定和映射。
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports) {
+
     napi_property_descriptor desc[] = {
-         {"runCommand", nullptr, RunCommand, nullptr, nullptr, nullptr, napi_default, nullptr},
-    };
+        {"runCommand", nullptr, RunCommand, nullptr, nullptr, nullptr, napi_default, nullptr},
+        {"getContext", nullptr, PluginManager::GetContext, nullptr, nullptr, nullptr, napi_default, nullptr}};
     napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
+
+    PluginManager::GetInstance()->Export(env, exports);
     return exports;
 }
 EXTERN_C_END
