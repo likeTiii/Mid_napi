@@ -1,0 +1,5448 @@
+{
+  "version": "1.0",
+  "events": [
+    {
+      "head": {
+        "id": "181d83ca-e343-4eb4-8109-c2342fd95df4",
+        "name": "hvigor build process will be closed.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22113107314700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e581cdd2-0e2f-4fa3-b9a1-942c977ec1b6",
+        "name": "worker[1] exit with exit code 1.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22113117130000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b91c55d3-60cb-4a95-8c7f-b28f7dc11288",
+        "name": "hvigor disconnect:  client namespace disconnect",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22113125330700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "d25cc245-06ec-4564-ab28-bcdca4e4a9e3",
+        "name": "hvigor daemon: Socket will be closed. socketId=toniHH0UKJMWnPBtAAAT, connectionCount=0",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22113127405600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "7be57fe0-3344-4cad-9a87-7c2972bc4294",
+        "name": "hvigor daemon: Update daemon info in registry. daemonInfo={\"pid\":21948,\"state\":\"idle\",\"address\":\"127.0.0.1\",\"cwdPath\":\"D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\",\"hvigorVersion\":\"3.2.4\",\"keyId\":\"1ae5d76b983c911adc298ccbe8d3ba2def63e3d7\",\"nodeParams\":\"a3c7cac23ce8db547a7b07254455e2f6\",\"nodeVersion\":\"v18.14.1\",\"port\":45000,\"lastUsedTime\":1763384849022,\"createdBy\":\"deveco\",\"sessionId\":\"000000508a5ca79684dff0870a826f0d671b7fce4ada3cc91753d34229a299db843518614964d683d405ac3d17a78ed9e901fa8388ed4b35c9096f8a2177bcd73c97045ab2c7cf13204b096afd142ec3f90f7f419d02c87957afe0406c015c87\"}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22113136224000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e53d2605-1e65-40a1-ab05-b6f0e6234607",
+        "name": "worker[0] exit with exit code 1.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22113148927800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "33237f7f-0b82-4af5-9e6b-567cea76f3ae",
+        "name": "hvigor daemon: Check daemon process existed in registry, daemonStatus=idle.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22127673080300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e7b0adc5-c192-4522-b86d-1c593b13e1c0",
+        "name": "hvigor daemon: Check daemon process existed in registry, daemonStatus=idle.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22157679794100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "a77e93e6-f269-4160-9412-0d3d7a1882b7",
+        "name": "hvigor daemon: Check daemon process existed in registry, daemonStatus=idle.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22187677965100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "bb0bc7b0-bc2f-4025-a80b-0bcc34617b79",
+        "name": "hvigor daemon: Check daemon process existed in registry, daemonStatus=idle.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22217689306500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "5c1b2ec6-21e3-480e-8889-9ed82f71c1be",
+        "name": "hvigor daemon: Check daemon process existed in registry, daemonStatus=idle.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22247693712800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "9d030d27-244d-4b33-a7ab-5766c3b3a2a6",
+        "name": "hvigor daemon: Check daemon process existed in registry, daemonStatus=idle.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22277708218800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "7ac429da-d21c-4142-9565-4e695cc9c7e8",
+        "name": "hvigor daemon: Check daemon process existed in registry, daemonStatus=idle.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22307710586400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "bef990c7-15d9-4ec7-a110-8046ba9ffd62",
+        "name": "hvigor daemon: Check daemon process existed in registry, daemonStatus=idle.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22337721724700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e5d9f568-836f-46ed-beb0-079e33083d32",
+        "name": "hvigor daemon: Check daemon process existed in registry, daemonStatus=idle.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22367735998100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "345feebb-a72a-4f91-bb5e-436bd3ada458",
+        "name": "hvigor daemon: Check daemon process existed in registry, daemonStatus=idle.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22397738361700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "d151e8c8-26db-4bd3-b71b-7469413068ad",
+        "name": "hvigor daemon: Socket is connected. socketId=SWppHUDZrQ-r9o4CAAAV, connectionCount=1",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22426802669300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "6314d102-faea-484f-924c-f360a8b71e39",
+        "name": "hvigor daemon: daemonState=idle \n      daemonInfo=[{\"keyId\":\"f6ed8b3028acddcbc7a8daef762a81f1b153ce12\",\"hvigorVersion\":\"3.2.4\",\"cwdPath\":\"D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\",\"nodeVersion\":\"v18.14.1\",\"nodeParams\":\"a3c7cac23ce8db547a7b07254455e2f6\",\"address\":\"127.0.0.1\",\"port\":45000,\"pid\":1348,\"state\":\"stopped\",\"lastUsedTime\":1762418212510,\"info\":\"Project closed and this daemon was created by Deveco.\",\"createdBy\":\"deveco\",\"sessionId\":\"000000505231231f93ac779335fcac2c7583ce31cd1a5bdd073a9a8b0005b4990373a18442f42fa3262ce025c94f97f85eb5c6e862146b2036329105d003e6adeacacaa1c02ce1af95ad1bd0af2767158bae87eacda27c8f0ad070ed0cf13926\"},{\"keyId\":\"c44061fc0e796ea63f4e86bef428843ea6ef2df9\",\"hvigorVersion\":\"3.2.4\",\"cwdPath\":\"D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\",\"nodeVersion\":\"v18.14.1\",\"nodeParams\":\"a3c7cac23ce8db547a7b07254455e2f6\",\"address\":\"127.0.0.1\",\"port\":45000,\"pid\":1584,\"state\":\"stopped\",\"lastUsedTime\":1762861033807,\"info\":\"Project closed and this daemon was created by Deveco.\",\"createdBy\":\"deveco\",\"sessionId\":\"00000050390b94820b0dcc267a9ee785b1dbecd8c2eb95cf0fb2a00a9ddc4e595ccc9a2cda2ff16044378eb20ea55f947811729faa903483396878f2d3b0fe2c0f9a60facb6470484d059fee526a6b7d0f629354d88a8a5d263a81f29260dd3f\"},{\"keyId\":\"9c31f4917e1a5e31aca1c67f8d3e3e3deb18400a\",\"hvigorVersion\":\"3.2.4\",\"cwdPath\":\"D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\",\"nodeVersion\":\"v18.14.1\",\"nodeParams\":\"a3c7cac23ce8db547a7b07254455e2f6\",\"address\":\"127.0.0.1\",\"port\":45000,\"pid\":24612,\"state\":\"stopped\",\"lastUsedTime\":1763037410197,\"info\":\"Project closed and this daemon was created by Deveco.\",\"createdBy\":\"deveco\",\"sessionId\":\"00000050448f18bda7a72877738b88e184b1724290e7dc9823bdba1a7189d0617bfa2e6848efa72593d46d608ae5893b20b9108fcbf7c50cc3d03cfc4ad5cdabeaf00376b682260358d7e8150cfb9019abd1c9f9fb2f23a2a3e968259a44750b\"},{\"keyId\":\"30580caa394912ff8bf64352b95ccd8bd775684e\",\"hvigorVersion\":\"3.2.4\",\"cwdPath\":\"D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\",\"nodeVersion\":\"v18.14.1\",\"nodeParams\":\"a3c7cac23ce8db547a7b07254455e2f6\",\"address\":\"127.0.0.1\",\"port\":45000,\"pid\":18308,\"state\":\"stopped\",\"lastUsedTime\":1762861398755,\"info\":\"Project closed and this daemon was created by Deveco.\",\"createdBy\":\"deveco\",\"sessionId\":\"000000505c879a609d29cb25f923bb366969156aa2287142d33923b898137780adb70c27ec1cadd4c590351d4fc7d285b17d67d38088f0575e9eb76d6d30b15351cd32c6a041ca5b9f65fdb0bdccb0733653ecff7d3c6d461fdc6fca7ce0a740\"},{\"keyId\":\"63de0f307202a736c4c079adec9ef8e783c8e4cc\",\"hvigorVersion\":\"3.2.4\",\"cwdPath\":\"D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\",\"nodeVersion\":\"v18.14.1\",\"nodeParams\":\"a3c7cac23ce8db547a7b07254455e2f6\",\"address\":\"127.0.0.1\",\"port\":45000,\"pid\":18500,\"state\":\"stopped\",\"lastUsedTime\":1763034886735,\"info\":\"stopped by exit event with code: -1\",\"createdBy\":\"deveco\",\"sessionId\":\"00000050e41e7cd90abc5ac51a04c0b21969757ade62bad645731826ddbf5d0e6a11d51ff98e32fc36b1cfcf078ff20802e3ba303f0ee7d46140d9e10384516765c87b03b5e42c5bed814211c4d287dc8258e2424d8186ab6f194d7a91362979\"},{\"pid\":21948,\"state\":\"idle\",\"address\":\"127.0.0.1\",\"cwdPath\":\"D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\",\"hvigorVersion\":\"3.2.4\",\"keyId\":\"1ae5d76b983c911adc298ccbe8d3ba2def63e3d7\",\"nodeParams\":\"a3c7cac23ce8db547a7b07254455e2f6\",\"nodeVersion\":\"v18.14.1\",\"port\":45000,\"lastUsedTime\":1763384849068,\"createdBy\":\"deveco\",\"sessionId\":\"000000508a5ca79684dff0870a826f0d671b7fce4ada3cc91753d34229a299db843518614964d683d405ac3d17a78ed9e901fa8388ed4b35c9096f8a2177bcd73c97045ab2c7cf13204b096afd142ec3f90f7f419d02c87957afe0406c015c87\"}]",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22426804929200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "cabc46ba-c20b-4601-b227-03e3656bd3a5",
+        "name": "hvigor daemon: Update daemon info in registry. daemonInfo={\"pid\":21948,\"state\":\"half_busy\",\"address\":\"127.0.0.1\",\"cwdPath\":\"D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\",\"hvigorVersion\":\"3.2.4\",\"keyId\":\"1ae5d76b983c911adc298ccbe8d3ba2def63e3d7\",\"nodeParams\":\"a3c7cac23ce8db547a7b07254455e2f6\",\"nodeVersion\":\"v18.14.1\",\"port\":45000,\"lastUsedTime\":1763384849068,\"createdBy\":\"deveco\",\"sessionId\":\"000000508a5ca79684dff0870a826f0d671b7fce4ada3cc91753d34229a299db843518614964d683d405ac3d17a78ed9e901fa8388ed4b35c9096f8a2177bcd73c97045ab2c7cf13204b096afd142ec3f90f7f419d02c87957afe0406c015c87\"}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22426806243500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "651dfb04-302d-4758-984d-f5331fd48827",
+        "name": "set active socket. socketId=SWppHUDZrQ-r9o4CAAAV",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22426814028800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "a9101d1f-57d4-4ece-b6a5-ac8504b379fe",
+        "name": "hvigor daemon: Update daemon info in registry. daemonInfo={\"pid\":21948,\"state\":\"stopReq\",\"address\":\"127.0.0.1\",\"cwdPath\":\"D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\",\"hvigorVersion\":\"3.2.4\",\"keyId\":\"1ae5d76b983c911adc298ccbe8d3ba2def63e3d7\",\"nodeParams\":\"a3c7cac23ce8db547a7b07254455e2f6\",\"nodeVersion\":\"v18.14.1\",\"port\":45000,\"lastUsedTime\":1763385162735,\"createdBy\":\"deveco\",\"sessionId\":\"000000508a5ca79684dff0870a826f0d671b7fce4ada3cc91753d34229a299db843518614964d683d405ac3d17a78ed9e901fa8388ed4b35c9096f8a2177bcd73c97045ab2c7cf13204b096afd142ec3f90f7f419d02c87957afe0406c015c87\"}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22426815468900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e2ea943d-5628-44f1-8264-2c572ad712ff",
+        "name": "hvigor daemon: Receive data from client. data={\n  mode: 'module',\n  parallel: true,\n  prop: [ 'module=entry@default', 'product=default' ],\n  incremental: true,\n  _: [ 'assembleHap' ],\n  daemon: true\n}.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22426819534400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b5f8cfc6-3421-419f-b0f4-0e9d242d914d",
+        "name": "hvigor daemon: Build start.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22426820510900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "dfa1854b-f89d-4c29-add4-983dd689fec5",
+        "name": "hvigor daemon: Update daemon info in registry. daemonInfo={\"pid\":21948,\"state\":\"busy\",\"address\":\"127.0.0.1\",\"cwdPath\":\"D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\",\"hvigorVersion\":\"3.2.4\",\"keyId\":\"1ae5d76b983c911adc298ccbe8d3ba2def63e3d7\",\"nodeParams\":\"a3c7cac23ce8db547a7b07254455e2f6\",\"nodeVersion\":\"v18.14.1\",\"port\":45000,\"lastUsedTime\":1763385162744,\"createdBy\":\"deveco\",\"sessionId\":\"000000508a5ca79684dff0870a826f0d671b7fce4ada3cc91753d34229a299db843518614964d683d405ac3d17a78ed9e901fa8388ed4b35c9096f8a2177bcd73c97045ab2c7cf13204b096afd142ec3f90f7f419d02c87957afe0406c015c87\"}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22426821829300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "9d3ccf0f-c075-4b88-8ba4-4b4d1eb43235",
+        "name": "Hvigor init with startParameters:{\n  hvigorfileTypeCheck: false,\n  parallelExecution: true,\n  incrementalExecution: true,\n  printStackTrace: false,\n  daemon: true,\n  analyze: 0,\n  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' },\n  enableSignTask: true\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22426828678900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "c3693955-266d-4961-b38d-d704f76223fc",
+        "name": "Cache service initialization finished in 10 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22426838362900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "97969e30-9f58-4716-9046-f2424ec29f51",
+        "name": "hvigorfile, resolving D:\\study\\y1\\openharmony\\code\\Mid_napi\\hvigorfile.ts",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22426851480500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e912c7b5-6da0-458b-9186-55dcb2b7d0ca",
+        "name": "hvigorfile, require result:  {\n  appCompileSdkVersion: '11',\n  appCompatibleSdkVersion: '11',\n  default: { system: [Function: appTasks], plugins: [] }\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427056319300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "93e3f547-df76-472d-acf9-5f92dba33dbd",
+        "name": "hvigorfile, binding system plugins [Function: appTasks]",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427056348900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "9c6e7260-1e4e-4d30-ab74-b60bb528862f",
+        "name": "hvigorfile, binding custom plugins []",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427097949200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "33152d6c-6aba-4d0d-ae0a-ce00085e79db",
+        "name": "hvigorfile, no custom plugins were found in D:\\study\\y1\\openharmony\\code\\Mid_napi\\hvigorfile.ts",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427098074100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "020d9284-7998-49c0-abfe-43a1305c1faf",
+        "name": "hvigorfile, resolve finished D:\\study\\y1\\openharmony\\code\\Mid_napi\\hvigorfile.ts",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427098097000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "2ec9fb91-c5fb-4468-b6cc-8170269cf571",
+        "name": "hvigorfile, resolving D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\hvigorfile.ts",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427101394800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "1d1b5c5e-a0a6-4e56-8a1f-aa42dbeb94fe",
+        "name": "hvigorfile, require result:  { default: { system: [Function: hapTasks], plugins: [] } }",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427111329300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "ce12f584-b89f-4a06-9280-6d5626c8406c",
+        "name": "hvigorfile, binding system plugins [Function: hapTasks]",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427111371000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "ab3a8e4e-83a4-4187-8d94-cdb84d6881bf",
+        "name": "Module entry Collected Dependency: ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427132242700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b9d8e8a3-41d1-44ac-a40d-3d2281e8df7d",
+        "name": "Module entry's total dependency: 0",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427132269000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "59130646-9ba3-4dd8-a769-ebe31df51a0e",
+        "name": "Start initialize module-target build option map, moduleName=entry, buildMode=debug",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427141779600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "24d3660a-dc18-4953-893d-7c4e774df76e",
+        "name": "Target 'default' config: {}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427142281600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "f0c9476c-9126-42f2-aca6-54b141052f3a",
+        "name": "Target 'ohosTest' config: {}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427143146200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "ab120366-6447-499e-bd67-f1c55ced8fc5",
+        "name": "Module 'entry' target 'default' build option: {\n  \"debuggable\": true,\n  \"copyFrom\": \"default\",\n  \"externalNativeOptions\": {\n    \"path\": \"./src/main/cpp/CMakeLists.txt\",\n    \"arguments\": \"\",\n    \"cppFlags\": \"\",\n    \"abiFilters\": [\n      \"arm64-v8a\"\n    ]\n  }\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427143450800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "53c13612-17e8-4b83-8ef8-990da1114510",
+        "name": "Module 'entry' target 'ohosTest' build option: {\n  \"debuggable\": true,\n  \"externalNativeOptions\": {\n    \"path\": \"./src/main/cpp/CMakeLists.txt\",\n    \"arguments\": \"\",\n    \"cppFlags\": \"\",\n    \"abiFilters\": [\n      \"arm64-v8a\"\n    ]\n  }\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427143484400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "02544c6e-0ea2-48c8-9992-5152cb570a5c",
+        "name": "End initialize module-target build option map, moduleName=entry",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427143493200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "943dd0fa-a455-4ac7-be49-7d0b9244f322",
+        "name": "Module 'entry' target 'default' using build option: {\n  \"debuggable\": true,\n  \"copyFrom\": \"default\",\n  \"externalNativeOptions\": {\n    \"path\": \"./src/main/cpp/CMakeLists.txt\",\n    \"arguments\": \"\",\n    \"cppFlags\": \"\",\n    \"abiFilters\": [\n      \"arm64-v8a\"\n    ]\n  }\n} in this build.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427143954100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "18f62d12-639e-43fd-bc57-7c29bf87cb52",
+        "name": "require SDK: toolchains,ArkTS,native; moduleName=entry",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427148830100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "fd440ca5-7f08-4839-8f75-87d21c5e96f8",
+        "name": "Module entry task initialization takes 13 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427166419200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "16fe92a2-a25e-41a1-973e-348c9dc44d0a",
+        "name": "hvigorfile, binding custom plugins []",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427166502500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "403dc7df-feaf-47a8-bb20-2a0c061aabe4",
+        "name": "hvigorfile, no custom plugins were found in D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\hvigorfile.ts",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427166520300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "0437cfa5-6d3a-479a-94f0-041d24feb87d",
+        "name": "hvigorfile, resolve finished D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\hvigorfile.ts",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427166529200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "4813a545-4158-4803-8744-d7cdfac77e8b",
+        "name": "Start initialize project's product build option map with build mode debug.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427167593000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "45bc8365-2221-4068-8bfd-920266fa6580",
+        "name": "Picking option from product 'default' with build mode 'debug'.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427167809300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "0b1eba9c-3143-4ee5-bfe4-c191f6b1269d",
+        "name": "Product 'default' build option: {}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427167870700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "829c3cd4-2e50-4804-8cc1-93f9fb278ee5",
+        "name": "End initialize project's product build option map with build mode 'debug'.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427167884000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "5683b404-dc58-4745-8702-56796c0fcc37",
+        "name": "Module Mid_napi Collected Dependency: ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427169101900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "68ffbeb9-bc67-4a40-8f61-b4683842c1f5",
+        "name": "Module Mid_napi's total dependency: 0",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427169128700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "4b17c429-6a2e-4f2c-9428-f3f8691118c4",
+        "name": "Product 'default' using build option: {\n  \"debuggable\": true\n} in this build.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427172620700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "8142e8ab-0cd0-48e6-a45f-b21bafe446e9",
+        "name": "Sdk init in 5 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427184367600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "be0f0756-ef56-491e-b5f6-5b80da30a91c",
+        "name": "project has submodules:entry",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427230150600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "d6771d5b-2701-4ad5-8636-7a00a5499e8e",
+        "name": "Project task initialization takes 53 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427237328300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "32de4a87-cfbb-49d4-b9fb-407d3b371b8e",
+        "name": "Sdk init in 8 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427245435100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "51470ac3-f464-410c-9738-30b84daf4037",
+        "name": "Configuration phase cost:414 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427251710300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e832b41d-a8e3-4d9b-a17e-36c003171c26",
+        "name": "Configuration task cost before running: 430 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427255718100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b84f640e-0d40-455a-a7f1-b448dc9adee0",
+        "name": "entry:default@PreBuild",
+        "description": "Pre-build in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427269815400,
+        "endTime": 22427280563200
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "c0df8860-5496-47e6-9569-329222cdccd0",
+        "logId": "f11e2d06-3c82-4fbf-a6d8-cb06b3eaee57"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "c0df8860-5496-47e6-9569-329222cdccd0",
+        "name": "create entry:default@PreBuild task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427257802700
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "b84f640e-0d40-455a-a7f1-b448dc9adee0"
+      }
+    },
+    {
+      "head": {
+        "id": "d5838987-d491-4ab3-98ff-a502bc191fd5",
+        "name": "entry : default@PreBuild start {\n  rss: 161021952,\n  heapTotal: 90587136,\n  heapUsed: 81724744,\n  external: 3763936,\n  arrayBuffers: 2799712\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427269780700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "fee09a8a-0c8c-45d0-9e2a-a23543e90683",
+        "name": "Executing task :entry:default@PreBuild",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427269830100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "1891d6ff-2d2c-46f9-9165-ef40e4764b3c",
+        "name": "Incremental task entry:default@PreBuild pre-execution cost: 7 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427280450900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "ea9a67a4-1b48-4e3d-b2a0-a2d8b8fc1982",
+        "name": "entry : default@PreBuild end {\n  rss: 161361920,\n  heapTotal: 90587136,\n  heapUsed: 81890320,\n  external: 3763936,\n  arrayBuffers: 2799712\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427280540200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "f11e2d06-3c82-4fbf-a6d8-cb06b3eaee57",
+        "name": "UP-TO-DATE :entry:default@PreBuild",
+        "description": "Pre-build in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427269815400,
+        "endTime": 22427280563200
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "b84f640e-0d40-455a-a7f1-b448dc9adee0"
+      }
+    },
+    {
+      "head": {
+        "id": "252266cc-00c8-4df1-b85a-a96ba9387520",
+        "name": "entry:default@GenerateMetadata",
+        "description": "Generate metadata in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427286639000,
+        "endTime": 22427310232100
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "94bebd2a-d00c-465a-9791-38a3b322f928",
+        "logId": "bbb3d28d-6604-4c01-a0d7-c0fcefc2a0eb"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "94bebd2a-d00c-465a-9791-38a3b322f928",
+        "name": "create entry:default@GenerateMetadata task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427284644500
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "252266cc-00c8-4df1-b85a-a96ba9387520"
+      }
+    },
+    {
+      "head": {
+        "id": "d3b359a6-6095-448a-8cb9-c6ce2049acbd",
+        "name": "entry : default@GenerateMetadata start {\n  rss: 160661504,\n  heapTotal: 90587136,\n  heapUsed: 81298320,\n  external: 3763936,\n  arrayBuffers: 2791520\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427286607400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "624f8697-8e44-402d-a739-d92cca96fec1",
+        "name": "Executing task :entry:default@GenerateMetadata",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427286654000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e0038c52-dfcb-4cd0-ab90-1424690179da",
+        "name": "Incremental task entry:default@GenerateMetadata pre-execution cost: 15 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427310084400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b855db9a-dd0a-4d6f-84b5-4a719fa719e0",
+        "name": "entry : default@GenerateMetadata end {\n  rss: 161406976,\n  heapTotal: 90587136,\n  heapUsed: 81818072,\n  external: 3780320,\n  arrayBuffers: 2816096\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427310196800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "bbb3d28d-6604-4c01-a0d7-c0fcefc2a0eb",
+        "name": "UP-TO-DATE :entry:default@GenerateMetadata",
+        "description": "Generate metadata in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427286639000,
+        "endTime": 22427310232100
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "252266cc-00c8-4df1-b85a-a96ba9387520"
+      }
+    },
+    {
+      "head": {
+        "id": "29854bfa-37de-4d55-9ca0-aefbc2452e5d",
+        "name": "entry:default@CreateBuildProfile",
+        "description": "Create the BuildProfile.ets file for the HAP/HSP package.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427322114500,
+        "endTime": 22427330276800
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "be9b32ff-cd70-4537-b254-ce8b6e5e1467",
+        "logId": "08c3ff7e-b103-4391-9909-dbac0ff141c6"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "be9b32ff-cd70-4537-b254-ce8b6e5e1467",
+        "name": "create entry:default@CreateBuildProfile task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427319932800
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "29854bfa-37de-4d55-9ca0-aefbc2452e5d"
+      }
+    },
+    {
+      "head": {
+        "id": "c9f54361-f33d-4d63-8098-a648e017f3a2",
+        "name": "entry : default@CreateBuildProfile start {\n  rss: 160800768,\n  heapTotal: 90587136,\n  heapUsed: 81340056,\n  external: 3788512,\n  arrayBuffers: 2799712\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427322045600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "dbc488d6-d51a-41a2-aa02-db244630f551",
+        "name": "Executing task :entry:default@CreateBuildProfile",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427322158200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "6825e414-2bbc-4f0c-bedb-78a428f87675",
+        "name": "Incremental task entry:default@CreateBuildProfile pre-execution cost: 6 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427330137700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "f1ddcdbd-1043-4edd-8cfe-d844eaf48b3c",
+        "name": "entry : default@CreateBuildProfile end {\n  rss: 161021952,\n  heapTotal: 90587136,\n  heapUsed: 81461656,\n  external: 3788512,\n  arrayBuffers: 2799712\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427330250400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "08c3ff7e-b103-4391-9909-dbac0ff141c6",
+        "name": "UP-TO-DATE :entry:default@CreateBuildProfile",
+        "description": "Create the BuildProfile.ets file for the HAP/HSP package.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427322114500,
+        "endTime": 22427330276800
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "29854bfa-37de-4d55-9ca0-aefbc2452e5d"
+      }
+    },
+    {
+      "head": {
+        "id": "6a041224-5443-4971-bdda-3449a494440d",
+        "name": "entry:default@BuildNativeWithCmake",
+        "description": "Compile CPP source with CMake in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427336628100,
+        "endTime": 22429431966800
+      },
+      "additional": {
+        "children": [
+          "03908459-e0a0-45c3-90aa-4664df68a863"
+        ],
+        "state": "success",
+        "detailId": "ddf0ffbb-0691-424e-b382-5655fbc38461",
+        "logId": "759e5c1f-b082-40e8-b0b2-e4585412a1c2"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "ddf0ffbb-0691-424e-b382-5655fbc38461",
+        "name": "create entry:default@BuildNativeWithCmake task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427334539600
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "6a041224-5443-4971-bdda-3449a494440d"
+      }
+    },
+    {
+      "head": {
+        "id": "1c154147-1dc8-4ec8-b3e5-e5ec51e95a04",
+        "name": "entry : default@BuildNativeWithCmake start {\n  rss: 161210368,\n  heapTotal: 90587136,\n  heapUsed: 81701272,\n  external: 3772128,\n  arrayBuffers: 2807904\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427336572200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "51466407-b050-4a96-be4c-74f9f3a70583",
+        "name": "Executing task :entry:default@BuildNativeWithCmake",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427336660300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "6223254b-74f9-4b98-954e-d622354d89a3",
+        "name": "Use tool [Cmake]\n [\n  'D:\\\\study\\\\y1\\\\openharmony\\\\ohos-sdk\\\\11\\\\native\\\\build-tools\\\\cmake\\\\bin\\\\cmake.exe',\n  '-HD:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\src\\\\main\\\\cpp',\n  '-BD:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\.cxx\\\\default\\\\default\\\\arm64-v8a',\n  '-DOHOS_ARCH=arm64-v8a',\n  '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\build\\\\default\\\\intermediates\\\\cmake\\\\default\\\\obj\\\\arm64-v8a',\n  '-DCMAKE_BUILD_TYPE=Debug',\n  '-DOHOS_SDK_NATIVE=D:\\\\study\\\\y1\\\\openharmony\\\\ohos-sdk\\\\11\\\\native',\n  '-DCMAKE_SYSTEM_NAME=OHOS',\n  '-DCMAKE_OHOS_ARCH_ABI=arm64-v8a',\n  '-DCMAKE_EXPORT_COMPILE_COMMANDS=ON',\n  '-DCMAKE_TOOLCHAIN_FILE=D:\\\\study\\\\y1\\\\openharmony\\\\ohos-sdk\\\\11\\\\native\\\\build\\\\cmake\\\\ohos.toolchain.cmake',\n  '-GNinja',\n  '-DCMAKE_MAKE_PROGRAM=D:\\\\study\\\\y1\\\\openharmony\\\\ohos-sdk\\\\11\\\\native\\\\build-tools\\\\cmake\\\\bin\\\\ninja.exe',\n  '--no-warn-unused-cli'\n]",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427345557400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "cf3a5320-d600-494e-887e-df1abeb9c9f0",
+        "name": "default@BuildNativeWithCmake work[25] is submitted.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427347734400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "03908459-e0a0-45c3-90aa-4664df68a863",
+        "name": "entry:default@BuildNativeWithCmake",
+        "description": "Compile CPP source with CMake in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Worker0",
+        "startTime": 22427349141300,
+        "endTime": 22429431858900
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "parent": "6a041224-5443-4971-bdda-3449a494440d",
+        "logId": "ca2d3b2d-f79b-4396-b3d9-0e1fb60e3727"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "0ac79120-246c-409d-984d-567cb8f6f775",
+        "name": "default@BuildNativeWithCmake work[25] is pushed to ready queue.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427348969200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "939da9d2-ad23-4c8a-9590-ecc2a58b3138",
+        "name": "default@BuildNativeWithCmake work[25] has been dispatched to worker[0].",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427349166100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "242e324a-a2c5-4d67-a2ec-6b6329f0906d",
+        "name": "default@BuildNativeWithCmake work[25] is dispatched.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427349214900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "075cba6d-0125-4711-b3a7-ff56aec3189c",
+        "name": "entry : default@BuildNativeWithCmake end {\n  rss: 162000896,\n  heapTotal: 90587136,\n  heapUsed: 81954488,\n  external: 3772128,\n  arrayBuffers: 2807904\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427349336900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "caea90ac-2a24-4154-a4f4-68e34988ff76",
+        "name": "entry:default@GenerateLoaderJson",
+        "description": "Generate loader.json in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427374273000,
+        "endTime": 22427379963700
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "818fce4a-4896-4ded-93d9-ac539926f973",
+        "logId": "e8b77c4d-7039-4862-af65-6fd328e2559d"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "818fce4a-4896-4ded-93d9-ac539926f973",
+        "name": "create entry:default@GenerateLoaderJson task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427358605500
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "caea90ac-2a24-4154-a4f4-68e34988ff76"
+      }
+    },
+    {
+      "head": {
+        "id": "4c63a460-0edb-4036-bafd-8407eed47022",
+        "name": "entry : default@GenerateLoaderJson start {\n  rss: 162488320,\n  heapTotal: 90587136,\n  heapUsed: 82335680,\n  external: 3780320,\n  arrayBuffers: 2816096\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427374232300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "fe63da43-bacd-4847-ab93-3284471e239c",
+        "name": "Executing task :entry:default@GenerateLoaderJson",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427374293500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "39342b19-dd0c-452f-b3fe-ff86ab262199",
+        "name": "Incremental task entry:default@GenerateLoaderJson pre-execution cost: 3 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427379835500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "8168e07f-b5a9-4f13-9cfd-7f880fc17c1e",
+        "name": "entry : default@GenerateLoaderJson end {\n  rss: 161726464,\n  heapTotal: 90587136,\n  heapUsed: 81628296,\n  external: 3780320,\n  arrayBuffers: 2799712\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427379939300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e8b77c4d-7039-4862-af65-6fd328e2559d",
+        "name": "UP-TO-DATE :entry:default@GenerateLoaderJson",
+        "description": "Generate loader.json in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427374273000,
+        "endTime": 22427379963700
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "caea90ac-2a24-4154-a4f4-68e34988ff76"
+      }
+    },
+    {
+      "head": {
+        "id": "de5cf02c-448a-45b0-8b13-21425a2ba440",
+        "name": "entry:default@MergeProfile",
+        "description": "Merge app config manifest files in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427387721300,
+        "endTime": 22427391054100
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "a8a01a31-36bf-4080-a440-52850206b56b",
+        "logId": "85812094-900f-4de0-9acd-2f6089571911"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "a8a01a31-36bf-4080-a440-52850206b56b",
+        "name": "create entry:default@MergeProfile task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427383565200
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "de5cf02c-448a-45b0-8b13-21425a2ba440"
+      }
+    },
+    {
+      "head": {
+        "id": "e2331651-ae88-46e9-a269-9fe21eba9bd4",
+        "name": "entry : default@MergeProfile start {\n  rss: 161980416,\n  heapTotal: 90587136,\n  heapUsed: 81900760,\n  external: 3780320,\n  arrayBuffers: 2799712\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427387675700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "cf852b33-7579-4e64-883a-9d61d1aeb32e",
+        "name": "Executing task :entry:default@MergeProfile",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427387743800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "19030dd7-195d-4a05-990d-c302c0e8f6df",
+        "name": "Incremental task entry:default@MergeProfile pre-execution cost: 3 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427390922700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "972abfaa-e215-4ff1-bae0-e639bd64964f",
+        "name": "entry : default@MergeProfile end {\n  rss: 162033664,\n  heapTotal: 90587136,\n  heapUsed: 81970344,\n  external: 3780320,\n  arrayBuffers: 2799712\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427391018900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "85812094-900f-4de0-9acd-2f6089571911",
+        "name": "UP-TO-DATE :entry:default@MergeProfile",
+        "description": "Merge app config manifest files in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427387721300,
+        "endTime": 22427391054100
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "de5cf02c-448a-45b0-8b13-21425a2ba440"
+      }
+    },
+    {
+      "head": {
+        "id": "4090d54a-1b6d-4130-9f25-24b0d96a6da2",
+        "name": "entry:default@MakePackInfo",
+        "description": "Generate module pack.info in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427394862600,
+        "endTime": 22427419776800
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "32924254-81a1-4857-9ba4-ec2f8318533e",
+        "logId": "184efa7d-f6b1-4b78-9057-318d69d0eb67"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "32924254-81a1-4857-9ba4-ec2f8318533e",
+        "name": "create entry:default@MakePackInfo task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427393677000
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "4090d54a-1b6d-4130-9f25-24b0d96a6da2"
+      }
+    },
+    {
+      "head": {
+        "id": "46ec5a34-4a65-4a46-894d-9dd708c8e5c1",
+        "name": "entry : default@MakePackInfo start {\n  rss: 162299904,\n  heapTotal: 90587136,\n  heapUsed: 82192248,\n  external: 3780320,\n  arrayBuffers: 2799712\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427394833800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "6d98322f-2703-4ebb-8683-8dd613ee32ea",
+        "name": "Executing task :entry:default@MakePackInfo",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427394883900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "bb2ed01b-17f4-4bc2-83e3-a7c2956df124",
+        "name": "Incremental task entry:default@MakePackInfo pre-execution cost: 17 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427419616700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "52eb328b-cdbb-499a-a249-76821fc59705",
+        "name": "entry : default@MakePackInfo end {\n  rss: 162861056,\n  heapTotal: 91635712,\n  heapUsed: 81831592,\n  external: 3772128,\n  arrayBuffers: 2807904\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427419743700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "184efa7d-f6b1-4b78-9057-318d69d0eb67",
+        "name": "UP-TO-DATE :entry:default@MakePackInfo",
+        "description": "Generate module pack.info in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427394862600,
+        "endTime": 22427419776800
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "4090d54a-1b6d-4130-9f25-24b0d96a6da2"
+      }
+    },
+    {
+      "head": {
+        "id": "3f19f047-40f7-437d-bf0c-92a4ef92bc44",
+        "name": "entry:default@ProcessProfile",
+        "description": "Process app config manifest files in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427433039100,
+        "endTime": 22427434888000
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "9b6b397e-3ff6-4ff8-9c1a-bb750b692812",
+        "logId": "059a040d-2874-487a-bbc6-cf8bd218ac86"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "9b6b397e-3ff6-4ff8-9c1a-bb750b692812",
+        "name": "create entry:default@ProcessProfile task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427427436500
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "3f19f047-40f7-437d-bf0c-92a4ef92bc44"
+      }
+    },
+    {
+      "head": {
+        "id": "b706a9b2-56fe-4fe4-a1ae-570fbfd7a875",
+        "name": "entry : default@ProcessProfile start {\n  rss: 163266560,\n  heapTotal: 91635712,\n  heapUsed: 82201680,\n  external: 3780320,\n  arrayBuffers: 2816096\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427433004500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b2ad9f7e-18aa-4690-944e-6549b838f59c",
+        "name": "Executing task :entry:default@ProcessProfile",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427433053000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "0cfb66b8-f77d-4a4b-9c84-a509d7c4e88e",
+        "name": "Incremental task entry:default@ProcessProfile pre-execution cost: 2 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427434787000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "f5b42fb8-0fa3-4dd9-8c6e-a92c91e76908",
+        "name": "entry : default@ProcessProfile end {\n  rss: 163266560,\n  heapTotal: 91635712,\n  heapUsed: 82251080,\n  external: 3780320,\n  arrayBuffers: 2816096\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427434867400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "059a040d-2874-487a-bbc6-cf8bd218ac86",
+        "name": "UP-TO-DATE :entry:default@ProcessProfile",
+        "description": "Process app config manifest files in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427433039100,
+        "endTime": 22427434888000
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "3f19f047-40f7-437d-bf0c-92a4ef92bc44"
+      }
+    },
+    {
+      "head": {
+        "id": "ad00fc45-0d94-4376-a590-6bdc399ba2bf",
+        "name": "entry:default@ProcessResource",
+        "description": "Process resources in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427443837500,
+        "endTime": 22427466204300
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "e06c8dba-72e8-46f3-a79b-8b2da8227eb8",
+        "logId": "5379ea25-9cba-4106-8280-6aef78c8f899"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "e06c8dba-72e8-46f3-a79b-8b2da8227eb8",
+        "name": "create entry:default@ProcessResource task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427437367400
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "ad00fc45-0d94-4376-a590-6bdc399ba2bf"
+      }
+    },
+    {
+      "head": {
+        "id": "8eb83344-8e0a-4f19-b93a-c4ad0cdb4be8",
+        "name": "restool module names: entry; moduleName=entry, taskName=default@ProcessResource",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427442429500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "c87447b6-17a8-4333-b601-851227bd3986",
+        "name": "entry : default@ProcessResource start {\n  rss: 163524608,\n  heapTotal: 91635712,\n  heapUsed: 82491096,\n  external: 3780320,\n  arrayBuffers: 2816096\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427443809000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "8c60a07a-bbc4-4d0d-8b22-a26de6e52aa2",
+        "name": "Executing task :entry:default@ProcessResource",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427455083200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "09bc140e-fd29-4a9a-a5a2-d40386b2e692",
+        "name": "Incremental task entry:default@ProcessResource pre-execution cost: 2 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427456823200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "312921b6-8514-4399-abd8-cffacb2eeb09",
+        "name": "entry : default@ProcessResource end {\n  rss: 163717120,\n  heapTotal: 91635712,\n  heapUsed: 81817040,\n  external: 3788512,\n  arrayBuffers: 2799712\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427456946300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "5379ea25-9cba-4106-8280-6aef78c8f899",
+        "name": "UP-TO-DATE :entry:default@ProcessResource",
+        "description": "Process resources in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427443837500,
+        "endTime": 22427466204300
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "ad00fc45-0d94-4376-a590-6bdc399ba2bf"
+      }
+    },
+    {
+      "head": {
+        "id": "be94649e-9373-4859-a841-0a26b54e981b",
+        "name": "entry:default@CompileResource",
+        "description": "Compile project resources in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427489450400,
+        "endTime": 22427516841100
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "9903bea4-ed42-4d5e-b63c-f41ef9b0e8eb",
+        "logId": "db59befb-bab6-4749-a810-8f055d324bd5"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "9903bea4-ed42-4d5e-b63c-f41ef9b0e8eb",
+        "name": "create entry:default@CompileResource task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427480166600
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "be94649e-9373-4859-a841-0a26b54e981b"
+      }
+    },
+    {
+      "head": {
+        "id": "a765b311-9e34-4ddd-bef4-afffb895687d",
+        "name": "restool module names: entry; moduleName=entry, taskName=default@CompileResource",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427483823800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "f8f606cc-a3c8-425d-88fa-22b5ccb90f0c",
+        "name": "entry : default@CompileResource start {\n  rss: 164368384,\n  heapTotal: 91635712,\n  heapUsed: 82517368,\n  external: 3788512,\n  arrayBuffers: 2824288\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427489379900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "c32fc4d9-6c22-4c32-bbc1-415ec0f01e55",
+        "name": "Executing task :entry:default@CompileResource",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427489746500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "05150d8e-dd0c-42aa-89e3-7a9e9619cc80",
+        "name": "Incremental task entry:default@CompileResource pre-execution cost: 27 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427516606900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "fbb5e130-1f39-4c7b-9c1f-f2be06d30ed9",
+        "name": "entry : default@CompileResource end {\n  rss: 165040128,\n  heapTotal: 91635712,\n  heapUsed: 82144312,\n  external: 3788512,\n  arrayBuffers: 2799712\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427516759800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "db59befb-bab6-4749-a810-8f055d324bd5",
+        "name": "UP-TO-DATE :entry:default@CompileResource",
+        "description": "Compile project resources in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427489450400,
+        "endTime": 22427516841100
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "be94649e-9373-4859-a841-0a26b54e981b"
+      }
+    },
+    {
+      "head": {
+        "id": "4dbd919d-af3a-43b2-881c-42c63c49edab",
+        "name": "entry:default@CompileArkTS",
+        "description": "Compile ArkTS or JS components for large-system devices in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427534976200,
+        "endTime": 22427567124500
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "99ddab36-4617-45d8-b507-505ecde2e547",
+        "logId": "c54728dc-8ceb-44e9-aa75-4f59bb9ad2eb"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "99ddab36-4617-45d8-b507-505ecde2e547",
+        "name": "create entry:default@CompileArkTS task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427520382000
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "4dbd919d-af3a-43b2-881c-42c63c49edab"
+      }
+    },
+    {
+      "head": {
+        "id": "b6041891-36d2-4d33-8866-8d8771fa75dc",
+        "name": "entry : default@CompileArkTS start {\n  rss: 165416960,\n  heapTotal: 91897856,\n  heapUsed: 82775216,\n  external: 3780320,\n  arrayBuffers: 2816096\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427534943200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "49a1550b-aa20-4318-8e7a-7024ca153df6",
+        "name": "Executing task :entry:default@CompileArkTS",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427534994200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "1bbb4764-27ac-4833-aeef-d2eaf84b3c5f",
+        "name": "Obfuscation config only effect in release mode.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427543429900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "06bfcce1-9bee-4fc5-a42e-50e8be9d50d7",
+        "name": "Incremental task entry:default@CompileArkTS pre-execution cost: 24 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427567000800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "06654a30-099e-408c-8413-d7f61279b034",
+        "name": "entry : default@CompileArkTS end {\n  rss: 166117376,\n  heapTotal: 92160000,\n  heapUsed: 82522352,\n  external: 3772128,\n  arrayBuffers: 2807904\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427567092200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "c54728dc-8ceb-44e9-aa75-4f59bb9ad2eb",
+        "name": "UP-TO-DATE :entry:default@CompileArkTS",
+        "description": "Compile ArkTS or JS components for large-system devices in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427534976200,
+        "endTime": 22427567124500
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "4dbd919d-af3a-43b2-881c-42c63c49edab"
+      }
+    },
+    {
+      "head": {
+        "id": "f62662d7-725b-4ba5-a358-b7cc4b588b00",
+        "name": "entry:default@BuildJS",
+        "description": "Compile ArkTS or JS components using Node.js for large-system devices in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427586164500,
+        "endTime": 22427600329700
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "e5664bf9-6347-442a-b345-3e1daea2bf2f",
+        "logId": "5112ef8f-cd93-42fa-b820-0724de733d28"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "e5664bf9-6347-442a-b345-3e1daea2bf2f",
+        "name": "create entry:default@BuildJS task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427576254100
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "f62662d7-725b-4ba5-a358-b7cc4b588b00"
+      }
+    },
+    {
+      "head": {
+        "id": "4daf9a85-c66a-42f8-bb3d-ecf41caeb095",
+        "name": "entry : default@BuildJS start {\n  rss: 166289408,\n  heapTotal: 92160000,\n  heapUsed: 83001536,\n  external: 3780320,\n  arrayBuffers: 2816096\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427586102700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "f8848e15-17bd-4820-9784-449e5a7a8b3e",
+        "name": "Executing task :entry:default@BuildJS",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427586190000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "5a8f5c12-b5b4-475b-97b3-1f5f726c9528",
+        "name": "entry : default@BuildJS end {\n  rss: 166309888,\n  heapTotal: 92160000,\n  heapUsed: 82646264,\n  external: 3788512,\n  arrayBuffers: 2799712\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427600276000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "5112ef8f-cd93-42fa-b820-0724de733d28",
+        "name": "Finished :entry:default@BuildJS",
+        "description": "Compile ArkTS or JS components using Node.js for large-system devices in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427586164500,
+        "endTime": 22427600329700
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "f62662d7-725b-4ba5-a358-b7cc4b588b00"
+      }
+    },
+    {
+      "head": {
+        "id": "a06cb7e0-1687-41df-a3ef-c18a8f12387d",
+        "name": "runTaskFromQueue task cost before running: 775 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427600644300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "3e39fdab-e3fd-4040-81e0-c9c60fa7fcb1",
+        "name": "hvigor daemon: Check daemon process existed in registry, daemonStatus=busy.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427741083200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "73520c46-1c80-4263-b9c4-97c182428240",
+        "name": "default@BuildNativeWithCmake work[25] done.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429431897400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "ca2d3b2d-f79b-4396-b3d9-0e1fb60e3727",
+        "name": "entry:default@BuildNativeWithCmake",
+        "description": "Compile CPP source with CMake in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Worker0",
+        "startTime": 22427349141300,
+        "endTime": 22429431858900
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "03908459-e0a0-45c3-90aa-4664df68a863",
+        "parent": "759e5c1f-b082-40e8-b0b2-e4585412a1c2"
+      }
+    },
+    {
+      "head": {
+        "id": "759e5c1f-b082-40e8-b0b2-e4585412a1c2",
+        "name": "Finished :entry:default@BuildNativeWithCmake",
+        "description": "Compile CPP source with CMake in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22427336628100,
+        "endTime": 22429431966800
+      },
+      "additional": {
+        "logType": "info",
+        "children": [
+          "ca2d3b2d-f79b-4396-b3d9-0e1fb60e3727"
+        ],
+        "durationId": "6a041224-5443-4971-bdda-3449a494440d"
+      }
+    },
+    {
+      "head": {
+        "id": "e75b7a53-a62a-4c2b-a4a2-6cd5401f14bc",
+        "name": "entry:default@BuildNativeWithNinja",
+        "description": "Compile CPP source with Ninja in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429434570400,
+        "endTime": 22447905678100
+      },
+      "additional": {
+        "children": [
+          "86ea07c9-539e-45c2-b897-8c2f8dbeac99"
+        ],
+        "state": "success",
+        "detailId": "403a199b-8a2b-4811-977b-7004954f9f1c",
+        "logId": "1e467af6-963f-43e4-9fc9-c1f9db77ccc1"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "403a199b-8a2b-4811-977b-7004954f9f1c",
+        "name": "create entry:default@BuildNativeWithNinja task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429433732400
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "e75b7a53-a62a-4c2b-a4a2-6cd5401f14bc"
+      }
+    },
+    {
+      "head": {
+        "id": "5a451993-8446-42d7-a7b1-5b03c90c5680",
+        "name": "entry : default@BuildNativeWithNinja start {\n  rss: 210714624,\n  heapTotal: 92160000,\n  heapUsed: 82922048,\n  external: 3772128,\n  arrayBuffers: 2807904\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429434551600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e3eb37de-fca1-4015-924a-d2b63361042d",
+        "name": "Executing task :entry:default@BuildNativeWithNinja",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429434581100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "a3a40ab7-c756-499b-b22b-f7bf3692091e",
+        "name": "A work dispatched to worker[0] failed because unable to get work from ready queue.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429442156300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "ff13decd-ecb2-4f66-a145-60c691700de3",
+        "name": "Use tool [Ninja]\n [\n  'D:\\\\study\\\\y1\\\\openharmony\\\\ohos-sdk\\\\11\\\\native\\\\build-tools\\\\cmake\\\\bin\\\\ninja.exe',\n  '-C',\n  'D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\.cxx\\\\default\\\\default\\\\arm64-v8a'\n]",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429449825800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "acb5214d-0a6a-4106-b24e-9dacfea7c0e6",
+        "name": "default@BuildNativeWithNinja work[26] is submitted.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429450498400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "86ea07c9-539e-45c2-b897-8c2f8dbeac99",
+        "name": "entry:default@BuildNativeWithNinja",
+        "description": "Compile CPP source with Ninja in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Worker0",
+        "startTime": 22429451126600,
+        "endTime": 22447905511100
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "parent": "e75b7a53-a62a-4c2b-a4a2-6cd5401f14bc",
+        "logId": "1a9eb478-ecaf-4b78-a12c-b92b6478ff25"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "abc607dd-9d4c-4638-ba48-e0c2084233e6",
+        "name": "default@BuildNativeWithNinja work[26] is pushed to ready queue.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429451019300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b7948d72-4094-455b-b25c-9ece726f0e4a",
+        "name": "default@BuildNativeWithNinja work[26] has been dispatched to worker[0].",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429451140400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "6206148f-3e3a-43c4-9a98-be427ea9a402",
+        "name": "default@BuildNativeWithNinja work[26] is dispatched.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429451168100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "75d20b4a-bf0c-4a4b-830e-61f8b42f884c",
+        "name": "entry : default@BuildNativeWithNinja end {\n  rss: 210792448,\n  heapTotal: 94257152,\n  heapUsed: 82766904,\n  external: 3791123,\n  arrayBuffers: 2816096\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429458691600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "78e2e0de-3d40-46e7-a97a-73c96a6b38c8",
+        "name": "default@BuildNativeWithNinja work[26] done.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22447905567800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "1a9eb478-ecaf-4b78-a12c-b92b6478ff25",
+        "name": "entry:default@BuildNativeWithNinja",
+        "description": "Compile CPP source with Ninja in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Worker0",
+        "startTime": 22429451126600,
+        "endTime": 22447905511100
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "86ea07c9-539e-45c2-b897-8c2f8dbeac99",
+        "parent": "1e467af6-963f-43e4-9fc9-c1f9db77ccc1"
+      }
+    },
+    {
+      "head": {
+        "id": "1e467af6-963f-43e4-9fc9-c1f9db77ccc1",
+        "name": "Finished :entry:default@BuildNativeWithNinja",
+        "description": "Compile CPP source with Ninja in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22429434570400,
+        "endTime": 22447905678100
+      },
+      "additional": {
+        "logType": "info",
+        "children": [
+          "1a9eb478-ecaf-4b78-a12c-b92b6478ff25"
+        ],
+        "durationId": "e75b7a53-a62a-4c2b-a4a2-6cd5401f14bc"
+      }
+    },
+    {
+      "head": {
+        "id": "062b0000-608d-4768-aa9e-674c28de7088",
+        "name": "entry:default@ProcessLibs",
+        "description": "Process .so files in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22447917610000,
+        "endTime": 22448223682200
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "5ab48791-aee8-4bcd-a7d3-02800709dcd5",
+        "logId": "15d3bd5c-02fc-4cbf-8a0e-5a4bc44ef55a"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "5ab48791-aee8-4bcd-a7d3-02800709dcd5",
+        "name": "create entry:default@ProcessLibs task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22447910345400
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "062b0000-608d-4768-aa9e-674c28de7088"
+      }
+    },
+    {
+      "head": {
+        "id": "99110e71-65dd-45a6-b37e-8302f828e641",
+        "name": "entry : default@ProcessLibs start {\n  rss: 188604416,\n  heapTotal: 94257152,\n  heapUsed: 83064808,\n  external: 3788512,\n  arrayBuffers: 2824288\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22447917566200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "c67f29c2-e82f-4cf8-8778-b34dab672208",
+        "name": "Executing task :entry:default@ProcessLibs",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22447917633500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "627f95a0-1471-4924-9ca9-40e2744572bb",
+        "name": "A work dispatched to worker[0] failed because unable to get work from ready queue.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22447919243800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e95aa919-cac6-4078-8cc7-27f8cf4fdbc0",
+        "name": "entry:default@ProcessLibs is not up-to-date, since the task snapshots are different.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448156174100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "95820b6b-eb37-46e4-9a3b-efe03431148f",
+        "name": "Incremental task entry:default@ProcessLibs pre-execution cost: 7 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448156280700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "8e9bd926-29f0-4532-9396-63a34c492cd1",
+        "name": "Libs: D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\cmake\\default\\obj\r\nD:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\libs",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448158065100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "7b2eb899-c3f5-4635-9407-849cb59bf9ca",
+        "name": "Collect files: arm64-v8a\\libentry.so,arm64-v8a\\libc++_shared.so",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448180180100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "51e1af04-7ab2-4fe7-98a0-1123a8ac837c",
+        "name": "Collect files: arm64-v8a\\libmiddleware_node_hmw.so",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448183924200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "62da6fcf-3de4-4ec0-bfcc-c9e922c344d6",
+        "name": "entry : default@ProcessLibs end {\n  rss: 188219392,\n  heapTotal: 91111424,\n  heapUsed: 83244696,\n  external: 4960932,\n  arrayBuffers: 3996708\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448223629400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "15d3bd5c-02fc-4cbf-8a0e-5a4bc44ef55a",
+        "name": "Finished :entry:default@ProcessLibs",
+        "description": "Process .so files in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22447917610000,
+        "endTime": 22448223682200
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "062b0000-608d-4768-aa9e-674c28de7088"
+      }
+    },
+    {
+      "head": {
+        "id": "188d7fb3-91a5-458d-bf15-f503fa65e3e5",
+        "name": "entry:default@DoNativeStrip",
+        "description": "Strip .so files to decrease size.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448242458200,
+        "endTime": 22448291850500
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "0468ea47-6f7e-45c5-9a32-568aa640442d",
+        "logId": "2f82c43e-27ae-4a37-8386-bf9f4b87d27c"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "0468ea47-6f7e-45c5-9a32-568aa640442d",
+        "name": "create entry:default@DoNativeStrip task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448226418700
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "188d7fb3-91a5-458d-bf15-f503fa65e3e5"
+      }
+    },
+    {
+      "head": {
+        "id": "81522096-355f-4798-ad8d-159f0f64eb32",
+        "name": "entry : default@DoNativeStrip start {\n  rss: 187834368,\n  heapTotal: 91373568,\n  heapUsed: 78971376,\n  external: 2216418,\n  arrayBuffers: 1252194\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448242419000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "f8f5188f-9010-4de6-a980-93b1f3523883",
+        "name": "Executing task :entry:default@DoNativeStrip",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448242481800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "c6982f63-4ade-4923-934d-29c4f23a881d",
+        "name": "runTaskFromQueue task cost before running: 21 s 417 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448243043400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "220afbd1-78ea-4e59-8e79-2c93e91e35cb",
+        "name": "entry:default@DoNativeStrip is not up-to-date, since the input file 'D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\libs\\default' has been changed.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448247028300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "70c1b934-3851-4c55-bb99-ab6714f4ea15",
+        "name": "Incremental task entry:default@DoNativeStrip pre-execution cost: 4 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448247116900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "7037dcfb-66db-4022-aeff-8b518d933f7d",
+        "name": "Start executing task ,{} DoNativeStrip",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448247212100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b828348c-2063-4c40-99b8-69230adbfaba",
+        "name": "do not need strip,now start copy so file in libs",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448248129100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "db2698da-1faf-4363-95c6-c56d6d316b8a",
+        "name": "strip task all done",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448291699500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "11299584-ff32-46df-8c82-ee986ac20d1c",
+        "name": "do not need strip,copied so file in libs",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448291726600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b3c188c5-cf0c-48d1-a0c8-51d6220a34e4",
+        "name": "Task execution end,{} DoNativeStrip",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448291744800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "82e1f341-e2c6-43dc-8398-7d0f2583a766",
+        "name": "entry : default@DoNativeStrip end {\n  rss: 188481536,\n  heapTotal: 91373568,\n  heapUsed: 79817496,\n  external: 2217954,\n  arrayBuffers: 1253730\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448291819600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "2f82c43e-27ae-4a37-8386-bf9f4b87d27c",
+        "name": "Finished :entry:default@DoNativeStrip",
+        "description": "Strip .so files to decrease size.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448242458200,
+        "endTime": 22448291850500
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "188d7fb3-91a5-458d-bf15-f503fa65e3e5"
+      }
+    },
+    {
+      "head": {
+        "id": "c53b2390-c0d1-43fc-b93f-680dcf1bc78b",
+        "name": "entry:default@CacheNativeLibs",
+        "description": "cache native strip .so fileInfo",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448299423700,
+        "endTime": 22448746527100
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "acdd07ff-c580-412e-9b73-3bc9a06e714c",
+        "logId": "66a7878f-f29a-4a26-9ec8-46fccf6e1ca5"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "acdd07ff-c580-412e-9b73-3bc9a06e714c",
+        "name": "create entry:default@CacheNativeLibs task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448294443500
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "c53b2390-c0d1-43fc-b93f-680dcf1bc78b"
+      }
+    },
+    {
+      "head": {
+        "id": "bcf4365c-adb5-4aa2-8b37-d6301c4538ff",
+        "name": "entry : default@CacheNativeLibs start {\n  rss: 188735488,\n  heapTotal: 91373568,\n  heapUsed: 80108848,\n  external: 2217954,\n  arrayBuffers: 1253730\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448299398400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "f5d1a22c-7bfc-40a1-860b-2ca14383c314",
+        "name": "Executing task :entry:default@CacheNativeLibs",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448299438600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "0fc5988f-ea02-4067-b070-8b693099ce57",
+        "name": "runTaskFromQueue task cost before running: 21 s 474 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448300064000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "bf1a4ffb-218f-4639-a852-5be24f740da0",
+        "name": "entry:default@CacheNativeLibs is not up-to-date, since the input file 'D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\libs\\default' has been changed.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448305256900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "03b8b858-abce-4b00-a8c3-0d7be4186042",
+        "name": "Incremental task entry:default@CacheNativeLibs pre-execution cost: 6 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448305336900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "c19615b4-f5c5-4f15-9d49-981e5c5b52f4",
+        "name": "cache-native-libs start",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448305405700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "5f6b90f7-2b45-4cbd-9fe4-9190b7db6578",
+        "name": "cache-native-libs end",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448746345600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "3e0efcab-5320-4c39-b773-7c450756475b",
+        "name": "entry : default@CacheNativeLibs end {\n  rss: 191045632,\n  heapTotal: 90324992,\n  heapUsed: 78735624,\n  external: 11285062,\n  arrayBuffers: 10320838\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448746492600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "66a7878f-f29a-4a26-9ec8-46fccf6e1ca5",
+        "name": "Finished :entry:default@CacheNativeLibs",
+        "description": "cache native strip .so fileInfo",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448299423700,
+        "endTime": 22448746527100
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "c53b2390-c0d1-43fc-b93f-680dcf1bc78b"
+      }
+    },
+    {
+      "head": {
+        "id": "795a56db-566c-416a-a6c2-271863ac4b03",
+        "name": "entry:default@PackageHap",
+        "description": "Build the HAP package in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448764866900,
+        "endTime": 22449787632900
+      },
+      "additional": {
+        "children": [
+          "0d382c34-34a6-41ca-a0ee-a82e10e4b91f"
+        ],
+        "state": "success",
+        "detailId": "cc4bc407-01d1-4b86-8bc3-ebb4eec36e79",
+        "logId": "1c52552e-efbe-45e6-960d-9c77ec30d04b"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "cc4bc407-01d1-4b86-8bc3-ebb4eec36e79",
+        "name": "create entry:default@PackageHap task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448749889100
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "795a56db-566c-416a-a6c2-271863ac4b03"
+      }
+    },
+    {
+      "head": {
+        "id": "8954fd1e-c0ec-4fac-bd40-802b44165317",
+        "name": "entry : default@PackageHap start {\n  rss: 191741952,\n  heapTotal: 90324992,\n  heapUsed: 79514120,\n  external: 11309638,\n  arrayBuffers: 10345414\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448764836700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e00c2bbb-6ba8-41b1-b050-81ff15ba5307",
+        "name": "Executing task :entry:default@PackageHap",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448764884800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "bcf36b74-3a56-4c5f-9fa3-11f720f3d508",
+        "name": "runTaskFromQueue task cost before running: 21 s 940 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448766214000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "4464ef78-a143-4fe1-ac10-96af5c2aa493",
+        "name": "entry:default@PackageHap is not up-to-date, since the input file 'D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\stripped_native_libs\\default' has been changed.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448772916500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "8894c601-158d-4192-b529-f0401d23d555",
+        "name": "Incremental task entry:default@PackageHap pre-execution cost: 7 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448772970700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "d48d8a2b-8e81-4a04-96c3-52ad7b90c4d4",
+        "name": "Use tool [D:\\study\\y1\\openharmony\\ohos-sdk\\11\\toolchains\\lib\\app_packing_tool.jar]\n [\n  'java',\n  '-Dfile.encoding=utf-8',\n  '-jar',\n  'D:\\\\study\\\\y1\\\\openharmony\\\\ohos-sdk\\\\11\\\\toolchains\\\\lib\\\\app_packing_tool.jar',\n  '--mode',\n  'hap',\n  '--force',\n  'true',\n  '--lib-path',\n  'D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\build\\\\default\\\\intermediates\\\\stripped_native_libs\\\\default',\n  '--json-path',\n  'D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\build\\\\default\\\\intermediates\\\\res\\\\default\\\\module.json',\n  '--resources-path',\n  'D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\build\\\\default\\\\intermediates\\\\res\\\\default\\\\resources',\n  '--index-path',\n  'D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\build\\\\default\\\\intermediates\\\\res\\\\default\\\\resources.index',\n  '--pack-info-path',\n  'D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\build\\\\default\\\\outputs\\\\default\\\\pack.info',\n  '--out-path',\n  'D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\build\\\\default\\\\outputs\\\\default\\\\entry-default-unsigned.hap',\n  '--ets-path',\n  'D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\build\\\\default\\\\intermediates\\\\loader_out\\\\default\\\\ets'\n]",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448774084900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": [],
+        "durationId": "795a56db-566c-416a-a6c2-271863ac4b03"
+      }
+    },
+    {
+      "head": {
+        "id": "802d86f0-569e-4bf6-82bb-61760f4baff9",
+        "name": "default@PackageHap work[27] is submitted.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448774679700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "0d382c34-34a6-41ca-a0ee-a82e10e4b91f",
+        "name": "entry:default@PackageHap",
+        "description": "Build the HAP package in the stage model.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Worker0",
+        "startTime": 22448775335000,
+        "endTime": 22449787501200
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "parent": "795a56db-566c-416a-a6c2-271863ac4b03",
+        "logId": "56b80de9-c081-43cb-94c5-dd66cb20b415"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "63148dde-caa8-46bb-ba14-bea3500ff2df",
+        "name": "default@PackageHap work[27] is pushed to ready queue.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448775224900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "18dd8a97-acce-4e91-857d-6d45c820ed02",
+        "name": "default@PackageHap work[27] has been dispatched to worker[0].",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448775347400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "bb77054a-41bf-4d87-b272-b4efef5de29b",
+        "name": "default@PackageHap work[27] is dispatched.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448775370300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "1e5a80eb-a230-4a04-a16b-d448ec570658",
+        "name": "entry : default@PackageHap end {\n  rss: 191234048,\n  heapTotal: 90324992,\n  heapUsed: 79015120,\n  external: 11317830,\n  arrayBuffers: 3930030\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448775433200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "9ec82400-16d2-4db8-bd91-274a6654b04b",
+        "name": "default@PackageHap work[27] done.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22449787549900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "56b80de9-c081-43cb-94c5-dd66cb20b415",
+        "name": "entry:default@PackageHap",
+        "description": "Build the HAP package in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Worker0",
+        "startTime": 22448775335000,
+        "endTime": 22449787501200
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "0d382c34-34a6-41ca-a0ee-a82e10e4b91f",
+        "parent": "1c52552e-efbe-45e6-960d-9c77ec30d04b"
+      }
+    },
+    {
+      "head": {
+        "id": "1c52552e-efbe-45e6-960d-9c77ec30d04b",
+        "name": "Finished :entry:default@PackageHap",
+        "description": "Build the HAP package in the stage model.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22448764866900,
+        "endTime": 22449787632900
+      },
+      "additional": {
+        "logType": "info",
+        "children": [
+          "56b80de9-c081-43cb-94c5-dd66cb20b415"
+        ],
+        "durationId": "795a56db-566c-416a-a6c2-271863ac4b03"
+      }
+    },
+    {
+      "head": {
+        "id": "8631af0a-664b-41bb-ad6b-f5f95d6e4ef2",
+        "name": "entry:default@SignHap",
+        "description": "Sign the HAP package.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22449798865500,
+        "endTime": 22455471982500
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "786a7e82-af34-4cf9-8bcf-bc0bdc27f2eb",
+        "logId": "4e19632f-8a92-4916-8767-65501412fab6"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "786a7e82-af34-4cf9-8bcf-bc0bdc27f2eb",
+        "name": "create entry:default@SignHap task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22449790962300
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "8631af0a-664b-41bb-ad6b-f5f95d6e4ef2"
+      }
+    },
+    {
+      "head": {
+        "id": "f8bd9334-55b6-4240-88e6-58a43668c9c5",
+        "name": "entry : default@SignHap start {\n  rss: 191946752,\n  heapTotal: 90324992,\n  heapUsed: 79595688,\n  external: 4902446,\n  arrayBuffers: 3938222\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22449798837100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "9af3c7e0-f69b-49b4-8ceb-33e22721a83d",
+        "name": "Executing task :entry:default@SignHap",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22449798877000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "2a4f6288-e0e0-4b30-97b2-4d4c1e05579d",
+        "name": "A work dispatched to worker[0] failed because unable to get work from ready queue.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22449799240000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "38f41ea7-18c7-4103-a9ab-f299453a06f8",
+        "name": "entry:default@SignHap is not up-to-date, since the input file 'D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\outputs\\default\\entry-default-unsigned.hap' has been changed.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22449801769800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "cb5c879d-6fd7-450a-ab91-3df60c3de03e",
+        "name": "Incremental task entry:default@SignHap pre-execution cost: 3 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22449801818000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e0d526bc-b9f4-4869-812f-f7c30cf87382",
+        "name": "Use tool [D:\\study\\y1\\openharmony\\ohos-sdk\\11\\toolchains\\lib\\hap-sign-tool.jar]\n [\n  'java',\n  '-jar',\n  'D:\\\\study\\\\y1\\\\openharmony\\\\ohos-sdk\\\\11\\\\toolchains\\\\lib\\\\hap-sign-tool.jar',\n  'sign-app',\n  '-mode',\n  'localSign',\n  '-keystoreFile',\n  'C:/Users/598/.ohos/config/openharmony/default_Mid_napi_m0SKyTh4sjLsheOjnmN3JvUh3TvWyBx5foBaj6bIzNY=.p12',\n  '-keystorePwd',\n  '******',\n  '-keyAlias',\n  'debugKey',\n  '-keyPwd',\n  '******',\n  '-signAlg',\n  'SHA256withECDSA',\n  '-profileFile',\n  'C:/Users/598/.ohos/config/openharmony/default_Mid_napi_m0SKyTh4sjLsheOjnmN3JvUh3TvWyBx5foBaj6bIzNY=.p7b',\n  '-appCertFile',\n  'C:/Users/598/.ohos/config/openharmony/default_Mid_napi_m0SKyTh4sjLsheOjnmN3JvUh3TvWyBx5foBaj6bIzNY=.cer',\n  '-inFile',\n  'D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\build\\\\default\\\\outputs\\\\default\\\\entry-default-unsigned.hap',\n  '-outFile',\n  'D:\\\\study\\\\y1\\\\openharmony\\\\code\\\\Mid_napi\\\\entry\\\\build\\\\default\\\\outputs\\\\default\\\\entry-default-signed.hap'\n]",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22449843479000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "0f9231ea-6396-48d9-a6be-9ba5e77f8fd8",
+        "name": "11-17 21:13:07 INFO  - Start verify-profile\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22451257302500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "a6d4a3ef-0b39-4da8-bbb4-a3e21a8001a8",
+        "name": "11-17 21:13:07 INFO  - verify-profile success\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22451773731000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "c98c1bce-35af-4c14-ab07-f1e2629bf675",
+        "name": "11-17 21:13:09 INFO  - Start sign-app\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22453504065500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "d3b8f696-ba16-4f4a-b430-91273212d1a9",
+        "name": "11-17 21:13:10 INFO  - certificate in profile: ide_demo_app\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22454110972600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b2be5cdf-8ed8-4045-9141-508f6dab1b39",
+        "name": "11-17 21:13:10 INFO  - Start to sign code.\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22454250117200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "9c82e006-6ffd-48bd-8af7-f99af964e8e5",
+        "name": "11-17 21:13:10 INFO  - C:/Users/598/.ohos/config/openharmony/default_Mid_napi_m0SKyTh4sjLsheOjnmN3JvUh3TvWyBx5foBaj6bIzNY=.p12 is exist. Try to load it with given passwd\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22454512773200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "ad2c6950-ec9a-44e7-89a1-3eae0ea1d183",
+        "name": "11-17 21:13:10 INFO  - Create a sign info successfully.\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22454894902000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "d6c5f3b5-8d4b-4f78-aab5-126fc8e29150",
+        "name": "11-17 21:13:10 INFO  - Create a sign info successfully.\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22454948854400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "ac533a17-3c07-4af7-94c2-9611838bb338",
+        "name": "11-17 21:13:11 INFO  - Create a sign info successfully.\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455098758200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "8f8c393e-7f78-4a6e-9deb-bd24594b8fad",
+        "name": "11-17 21:13:11 INFO  - Create a sign info successfully.\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455147955300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "745fdbec-d7b1-4bbf-9d14-3a0fb17f5ec7",
+        "name": "11-17 21:13:11 INFO  - Sign successfully.\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455156012700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "7b6dec4a-f6e7-469b-a62a-cab67b640c30",
+        "name": "11-17 21:13:11 INFO  - Add sign data in sign info list success.\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455406503300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "d9918e07-b4dd-40d6-b6d6-262840d3b2dc",
+        "name": "11-17 21:13:11 INFO  - Generate signing block success, begin write it to output file\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455413705000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e493ca57-cbcd-424e-a945-66b608893997",
+        "name": "11-17 21:13:11 INFO  - Sign Hap success!\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455416282000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "cb193d28-ae52-4c16-8999-16441c383859",
+        "name": "11-17 21:13:11 INFO  - sign-app success\r\n",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455416458400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "e6c09ae0-b712-42e9-a400-b37a0a34a68f",
+        "name": "entry : default@SignHap end {\n  rss: 191741952,\n  heapTotal: 90324992,\n  heapUsed: 79475184,\n  external: 4913850,\n  arrayBuffers: 3949594\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455471930000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "4e19632f-8a92-4916-8767-65501412fab6",
+        "name": "Finished :entry:default@SignHap",
+        "description": "Sign the HAP package.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22449798865500,
+        "endTime": 22455471982500
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "8631af0a-664b-41bb-ad6b-f5f95d6e4ef2"
+      }
+    },
+    {
+      "head": {
+        "id": "b34a7424-2cb0-411d-85a6-7aeeb46dc2d8",
+        "name": "entry:assembleHap",
+        "description": "Assemble the task for the packaged HAP file.",
+        "type": "duration"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475137400,
+        "endTime": 22455475250100
+      },
+      "additional": {
+        "children": [],
+        "state": "success",
+        "detailId": "08a8ded8-9b0b-455e-a42e-66eff87e57c0",
+        "logId": "9244ef49-06da-4ee3-93b8-12885b14c171"
+      },
+      "log": {
+        "_logger": {
+          "category": "DurationEvent",
+          "context": {},
+          "callStackSkipIndex": 0
+        }
+      }
+    },
+    {
+      "head": {
+        "id": "08a8ded8-9b0b-455e-a42e-66eff87e57c0",
+        "name": "create entry:assembleHap task",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475003100
+      },
+      "additional": {
+        "logType": "detail",
+        "children": [],
+        "durationId": "b34a7424-2cb0-411d-85a6-7aeeb46dc2d8"
+      }
+    },
+    {
+      "head": {
+        "id": "fcceb702-5545-40f7-b67e-b778c04dd159",
+        "name": "entry : assembleHap start {\n  rss: 191864832,\n  heapTotal: 90324992,\n  heapUsed: 79642360,\n  external: 4913850,\n  arrayBuffers: 3949594\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475119100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "a2df1a3e-b2b9-4b3d-b28c-41ed0fc45e3b",
+        "name": "Executing task :entry:assembleHap",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475148300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b05cfb20-ea4f-42f5-a136-2946f4b42acc",
+        "name": "runTaskFromQueue task cost before running: 28 s 649 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475206700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "d3f77934-e22f-46b1-9b68-ca4503dfc8ad",
+        "name": "entry : assembleHap end {\n  rss: 191864832,\n  heapTotal: 90324992,\n  heapUsed: 79654008,\n  external: 4913850,\n  arrayBuffers: 3949594\n}",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475235000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "9244ef49-06da-4ee3-93b8-12885b14c171",
+        "name": "Finished :entry:assembleHap",
+        "description": "Assemble the task for the packaged HAP file.",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475137400,
+        "endTime": 22455475250100
+      },
+      "additional": {
+        "logType": "info",
+        "children": [],
+        "durationId": "b34a7424-2cb0-411d-85a6-7aeeb46dc2d8"
+      }
+    },
+    {
+      "head": {
+        "id": "6495d2f3-02b8-4e12-8a29-d82136e0c818",
+        "name": "BUILD SUCCESSFUL in 28 s 649 ms ",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475454400
+      },
+      "additional": {
+        "logType": "info",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "2ca19382-4e24-432c-960b-c4f914b8fd20",
+        "name": "assembleHap",
+        "description": "",
+        "type": "mark"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22426826541300,
+        "endTime": 22455475602300
+      },
+      "additional": {
+        "time": {
+          "year": 2025,
+          "month": 11,
+          "day": 17,
+          "hour": 21,
+          "minute": 13
+        },
+        "markType": "history",
+        "category": "build",
+        "state": "success"
+      }
+    },
+    {
+      "head": {
+        "id": "c4b005dc-0696-4ccc-9bb6-f8840e8a4466",
+        "name": "There is no need to refresh cache, since the incremental task entry:default@PreBuild is up-to-date.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475646200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "73b05d28-f568-4ada-9fff-ba35e3d3df19",
+        "name": "There is no need to refresh cache, since the incremental task entry:default@GenerateMetadata is up-to-date.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475660100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "7d621988-639c-44dc-83d2-faf2c16ebbd0",
+        "name": "There is no need to refresh cache, since the incremental task entry:default@CreateBuildProfile is up-to-date.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475716100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "42c1f27f-4c07-43b8-b8ce-53b62f26735a",
+        "name": "There is no need to refresh cache, since the incremental task entry:default@GenerateLoaderJson is up-to-date.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475729200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "6731ac55-b752-42bc-aae5-bbbd735ceb27",
+        "name": "There is no need to refresh cache, since the incremental task entry:default@MergeProfile is up-to-date.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475738900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b3b55f0d-bb86-4a1b-8eaa-b4222dbeaa6c",
+        "name": "There is no need to refresh cache, since the incremental task entry:default@MakePackInfo is up-to-date.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475748000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "61357d4c-fae7-4937-8fd9-8d39782c3d1e",
+        "name": "There is no need to refresh cache, since the incremental task entry:default@ProcessProfile is up-to-date.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475755000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "a0de3a76-4488-439e-a87d-9293f68f9bdc",
+        "name": "There is no need to refresh cache, since the incremental task entry:default@ProcessResource is up-to-date.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475762300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "23b6cdfc-a155-4bbf-aa19-0327f13071d1",
+        "name": "There is no need to refresh cache, since the incremental task entry:default@CompileResource is up-to-date.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475770900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "8597014a-077f-4b01-a55b-1e44a18f3135",
+        "name": "There is no need to refresh cache, since the incremental task entry:default@CompileArkTS is up-to-date.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455475780400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "19c644b3-d0b7-4dcc-b509-1fe52a4b1b98",
+        "name": "Update task entry:default@BuildJS input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\loader\\default cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455478226600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "c730541c-70a0-41bd-8679-004a5402c6f5",
+        "name": "Update task entry:default@BuildJS input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\res\\default\\resources\\rawfile cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455479001700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b35e54e0-f624-40b4-a358-4a594fdb146a",
+        "name": "Update task entry:default@BuildJS input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\res\\default\\ResourceTable.txt cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455479793000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "bffe157e-9181-4c81-a7b3-3c92027b59c6",
+        "name": "Update task entry:default@BuildJS input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\res\\default\\module.json cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455480104300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "08a01af7-4ccc-4797-a9a3-091f0c8ae7a0",
+        "name": "Update task entry:default@BuildJS input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\res\\default\\resources\\base\\profile cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455481742300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "1479b2f7-6d07-4ee5-ba07-e84c02ae43f2",
+        "name": "Update task entry:default@BuildJS output file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\loader_out\\default\\js cache.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455483794800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "70723271-b848-4eff-98a4-cb927036f9b1",
+        "name": "Incremental task entry:default@BuildJS post-execution cost:9 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455484210300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "8230fca6-39ca-413f-ab00-31f55e2a9df0",
+        "name": "Update task entry:default@ProcessLibs input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\libs cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455484422500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "56cb0f94-82c8-4d79-8a00-188a24b4c58b",
+        "name": "Update task entry:default@ProcessLibs output file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\libs\\default cache.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455485753300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b0787a4c-2b9b-45b1-aa35-6f6def5698a8",
+        "name": "Incremental task entry:default@ProcessLibs post-execution cost:4 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455487734100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "acd43be1-6ed3-41cc-9d26-f0adb14acbe6",
+        "name": "Update task entry:default@DoNativeStrip input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\libs\\default cache from map.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455487972700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "ee8ddc99-6027-4208-9d01-b24da19e3663",
+        "name": "Update task entry:default@DoNativeStrip output file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\stripped_native_libs\\default cache.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455488000000
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "0074c4da-b902-47d7-a51a-644bbe9a9e50",
+        "name": "Incremental task entry:default@DoNativeStrip post-execution cost:3 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455489871200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "c882b0e5-d834-4964-bfd3-3d99b74a2fde",
+        "name": "Update task entry:default@CacheNativeLibs input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\libs\\default cache from map.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455490174800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "7bd4ceb4-00da-4bfc-8b0b-2321167034db",
+        "name": "Update task entry:default@CacheNativeLibs input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\stripped_native_libs\\default cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455490192700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "c7e2a977-152a-4997-8635-0bd93408eba4",
+        "name": "Update task entry:default@CacheNativeLibs output file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\patch\\default\\base_native_libs.json cache.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455491936200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "82c36028-8e2a-47a5-ad1a-ada52b8c4633",
+        "name": "Incremental task entry:default@CacheNativeLibs post-execution cost:3 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455492282400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "640393b6-8e89-4c0d-87f8-bd51a5ad59ba",
+        "name": "Update task entry:default@PackageHap input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\stripped_native_libs\\default cache from map.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455493614300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "a682b747-ef2a-46b1-8c09-e84214d0b776",
+        "name": "Update task entry:default@PackageHap input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\res\\default\\module.json cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455493634100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "39bc4139-d153-47c1-b2a7-5798f0e2d05b",
+        "name": "Update task entry:default@PackageHap input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\res\\default\\resources cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455493942900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "2d68baa4-e312-4169-b97c-abe874932ba0",
+        "name": "Update task entry:default@PackageHap input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\res\\default\\resources.index cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455497615800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "59f6017a-2c47-444f-b452-098856416dcb",
+        "name": "Update task entry:default@PackageHap input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\outputs\\default\\pack.info cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455497919800
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "2df4dd15-f97f-47cd-a4df-55e181ea5fee",
+        "name": "Update task entry:default@PackageHap input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\intermediates\\loader_out\\default\\ets cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455498206900
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "8b7518d7-4636-4971-b2a9-8fd75fa504d2",
+        "name": "Update task entry:default@PackageHap input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\generated\\profile\\default\\BuildProfile.ets cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455499492400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "d0bcedff-7111-42ae-90f7-7c69efe81a97",
+        "name": "Update task entry:default@PackageHap output file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\outputs\\default\\entry-default-unsigned.hap cache.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455499830200
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "5e98da5a-95c5-4b94-a967-6edbd43256d8",
+        "name": "Incremental task entry:default@PackageHap post-execution cost:8 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455500226400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "a2544a98-2649-4ea4-bddc-81b130d013ef",
+        "name": "Update task entry:default@SignHap input file:C:/Users/598/.ohos/config/openharmony/default_Mid_napi_m0SKyTh4sjLsheOjnmN3JvUh3TvWyBx5foBaj6bIzNY=.cer cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455500416100
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "cea60673-8184-4914-b6e1-4562e4e485c7",
+        "name": "Update task entry:default@SignHap input file:C:/Users/598/.ohos/config/openharmony/default_Mid_napi_m0SKyTh4sjLsheOjnmN3JvUh3TvWyBx5foBaj6bIzNY=.p7b cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455500842300
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "beaf89ad-6001-4e70-abf2-bf1ef3d162b3",
+        "name": "Update task entry:default@SignHap input file:C:/Users/598/.ohos/config/openharmony/default_Mid_napi_m0SKyTh4sjLsheOjnmN3JvUh3TvWyBx5foBaj6bIzNY=.p12 cache by regenerate.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455501214500
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "564a526c-148f-4d35-a3f7-906fc6b5b87c",
+        "name": "Update task entry:default@SignHap input file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\outputs\\default\\entry-default-unsigned.hap cache from map.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455501590600
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "b270d6fc-6111-4aff-b709-a78f3eda8a7d",
+        "name": "Update task entry:default@SignHap output file:D:\\study\\y1\\openharmony\\code\\Mid_napi\\entry\\build\\default\\outputs\\default\\entry-default-signed.hap cache.",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455501628400
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    },
+    {
+      "head": {
+        "id": "17ce636a-00bd-414a-8839-773ee8cccc3c",
+        "name": "Incremental task entry:default@SignHap post-execution cost:2 ms .",
+        "description": "",
+        "type": "log"
+      },
+      "body": {
+        "pid": 21948,
+        "tid": "Main Thread",
+        "startTime": 22455502009700
+      },
+      "additional": {
+        "logType": "debug",
+        "children": []
+      }
+    }
+  ],
+  "workLog": []
+}
