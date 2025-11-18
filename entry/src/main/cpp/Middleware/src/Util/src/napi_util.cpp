@@ -329,6 +329,7 @@ void subscribe_and_record(const std::string &topic_name,
 
 namespace {
 
+//将protobuf格式的数据转换为C++格式
 float ExtractScalar(const google::protobuf::Message &message, const google::protobuf::FieldDescriptor *field)
 {
     if (field == nullptr) {
@@ -355,6 +356,7 @@ float ExtractScalar(const google::protobuf::Message &message, const google::prot
     }
 }
 
+//检测发送的是Geometry.Point就解析其xyz坐标重新绘制。
 void TryUpdateRobotVisualization(const google::protobuf::Message &message)
 {
     if (message.GetTypeName() != "Geometry.Point") {
