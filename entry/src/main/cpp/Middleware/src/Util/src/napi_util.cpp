@@ -33,18 +33,20 @@
 #include <hmw/Publisher.hpp>
 #include <hmw/Subscriber.hpp>
 #include <thread>
+#include <type_traits>
+#include <mutex>
 
 namespace beast = boost::beast;
 namespace asio = boost::asio;
 namespace http = beast::http;
 namespace fs = std::filesystem;
-#include <mutex>
 #include "hilog/log.h"
 #undef LOG_DOMAIN
 #undef LOG_TAG
 #define LOG_DOMAIN 0x3200
 #define LOG_TAG "util"
 
+extern "C" __attribute__((visibility("default"))) void PostRobotPosition(float x, float y, float z);
 // 声明NAPI层导出的函数（跨文件调用）
 extern "C" __attribute__((visibility("default"))) void SendToArkTS(int index, const std::string &message);
 
@@ -324,6 +326,54 @@ void subscribe_and_record(const std::string &topic_name,
         g_threads.emplace(uniqueName, std::move(t));
     }
 }
+
+namespace {
+
+float ExtractScalar(const google::protobuf::Message &message, const google::protobuf::FieldDescriptor *field)
+{
+    if (field == nullptr) {
+        return 0.0f;
+    }
+    const auto *reflection = message.GetReflection();
+    switch (field->cpp_type()) {
+        case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
+            return static_cast<float>(reflection->GetDouble(message, field));
+        case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
+            return reflection->GetFloat(message, field);
+        case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
+            return static_cast<float>(reflection->GetInt32(message, field));
+        case google::protobuf::FieldDescriptor::CPPTYPE_INT64:
+            return static_cast<float>(reflection->GetInt64(message, field));
+        case google::protobuf::FieldDescriptor::CPPTYPE_UINT32:
+            return static_cast<float>(reflection->GetUInt32(message, field));
+        case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
+            return static_cast<float>(reflection->GetUInt64(message, field));
+        case google::protobuf::FieldDescriptor::CPPTYPE_BOOL:
+            return reflection->GetBool(message, field) ? 1.0f : 0.0f;
+        default:
+            return 0.0f;
+    }
+}
+
+void TryUpdateRobotVisualization(const google::protobuf::Message &message)
+{
+    if (message.GetTypeName() != "Geometry.Point") {
+        return;
+    }
+    const auto *descriptor = message.GetDescriptor();
+    const auto *fieldX = descriptor->FindFieldByName("x");
+    const auto *fieldY = descriptor->FindFieldByName("y");
+    const auto *fieldZ = descriptor->FindFieldByName("z");
+    if (fieldX == nullptr || fieldY == nullptr || fieldZ == nullptr) {
+        return;
+    }
+    float x = ExtractScalar(message, fieldX);
+    float y = ExtractScalar(message, fieldY);
+    float z = ExtractScalar(message, fieldZ);
+    PostRobotPosition(x, y, z);
+}
+
+} // namespace
 //创建发布者发布消息
 template <typename T>
 void publish_message(std::shared_ptr<Hnu::Middleware::Node> node,
@@ -342,6 +392,9 @@ void publish_message(std::shared_ptr<Hnu::Middleware::Node> node,
     std::string log_message = "Publish " + debug_info + "(" + message.GetTypeName() + ") to " + topic_name ;
     // 直接调用NAPI层的发送函数（自动处理线程转发）
     SendToArkTS(index, log_message);
+    if constexpr (std::is_base_of<google::protobuf::Message, T>::value) {
+        TryUpdateRobotVisualization(message);
+    }
 }
 
 //protobuf反射数据类型

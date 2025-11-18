@@ -576,8 +576,17 @@ void EGLCore::DrawGrid() {
     //  机器人默认在原点，所以其模型矩阵是单位矩阵。
     //  如果要移动机器人，需要修改这个矩阵 (例如: modelMatrix = glm::translate(modelMatrix, glm::vec3(x, y, z));)
     glm::mat4 robotModelMatrix = glm::mat4(1.0f);
+    float robotX = 0.0f;
+    float robotY = 0.0f;
+    float robotZ = 0.0f;
+    {
+        std::lock_guard<std::mutex> lock(robotMutex_);
+        robotX = robotX_;
+        robotY = robotY_;
+        robotZ = robotZ_;
+    }
     //红绿蓝方向。跟坐标位置与网格比例为2：1
-    robotModelMatrix = glm::translate(robotModelMatrix, glm::vec3(robotX_, robotY_, robotZ_));
+    robotModelMatrix = glm::translate(robotModelMatrix, glm::vec3(robotX, robotY, robotZ));
     // 传递机器人模型矩阵给着色器 (视图和投影矩阵不变)
     glUniformMatrix4fv(axisModelLoc_, 1, GL_FALSE, glm::value_ptr(robotModelMatrix));
     // 绘制机器人方块 (例如，使用黄色)
@@ -654,6 +663,22 @@ void EGLCore::MouseTouchEvent(OH_NativeXComponent_MouseEvent mouseEvent) {
             break;
         }
     
+}
+
+void EGLCore::SetRobotPosition(float x, float y, float z)
+{
+    std::lock_guard<std::mutex> lock(robotMutex_);
+    robotX_ = x;
+    robotY_ = y;
+    robotZ_ = z;
+}
+
+void EGLCore::AdjustRobotPosition(float dx, float dy, float dz)
+{
+    std::lock_guard<std::mutex> lock(robotMutex_);
+    robotX_ += dx;
+    robotY_ += dy;
+    robotZ_ += dz;
 }
 GLuint EGLCore::LoadShader(GLenum type, const char *shaderSrc) {
     if ((type <= 0) || (shaderSrc == nullptr)) {

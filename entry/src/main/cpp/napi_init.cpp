@@ -18,6 +18,7 @@
 
 #include "common/common.h"
 #include "manager/plugin_manager.h"
+#include "render/plugin_render.h"
 
 #undef LOG_DOMAIN
 #undef LOG_TAG
@@ -27,6 +28,14 @@
 
 namespace fs = std::filesystem;
 
+struct AsyncTask {
+    enum class Type { Message, Render } type = Type::Message;
+    std::string payload;
+    float x = 0.0f;
+    float y = 0.0f;
+    float z = 0.0f;
+};
+
 // 全局状态
 struct {
     napi_env env = nullptr;
@@ -34,8 +43,10 @@ struct {
     uv_async_t async_handle;
     bool initialized = false;
     std::mutex mutex;
-    std::queue<std::string> messages;
+    std::queue<AsyncTask> tasks;
 } g_state;
+
+extern "C" __attribute__((visibility("default"))) void PostRobotPosition(float x, float y, float z);
 
 extern "C" __attribute__((visibility("default"))) void SendToArkTS(int index, const std::string &message);
 
@@ -49,7 +60,10 @@ void SendToArkTS(int index, const std::string &message) {
 
     std::ostringstream oss;
     oss << index << "|" << message;
-    g_state.messages.push(oss.str());
+    AsyncTask task;
+    task.type = AsyncTask::Type::Message;
+    task.payload = oss.str();
+    g_state.tasks.push(std::move(task));
 
     // 打印当前线程 ID，确认是否在子线程触发
     OH_LOG_ERROR(LOG_APP, "[OnAsyncMessage] push msg='%{public}s' thread=%zu", oss.str().c_str(),
@@ -68,24 +82,28 @@ static void OnAsyncMessage(uv_async_t *handle) {
         return;
     }
 
-    OH_LOG_ERROR(LOG_APP, "[OnAsyncMessage] messages size=%{public}zu", g_state.messages.size());
+    OH_LOG_ERROR(LOG_APP, "[OnAsyncMessage] task size=%{public}zu", g_state.tasks.size());
 
     // 逐条处理
-    while (!g_state.messages.empty()) {
-        std::string msg = std::move(g_state.messages.front());
-        g_state.messages.pop();
+    while (!g_state.tasks.empty()) {
+        AsyncTask task = std::move(g_state.tasks.front());
+        g_state.tasks.pop();
 
-        napi_value js_msg;
-        napi_create_string_utf8(g_state.env, msg.c_str(), msg.size(), &js_msg);
+        if (task.type == AsyncTask::Type::Message) {
+            napi_value js_msg;
+            napi_create_string_utf8(g_state.env, task.payload.c_str(), task.payload.size(), &js_msg);
 
-        napi_value js_callback;
-        napi_get_reference_value(g_state.env, g_state.callback, &js_callback);
+            napi_value js_callback;
+            napi_get_reference_value(g_state.env, g_state.callback, &js_callback);
 
-        napi_value result;
-        napi_status status = napi_call_function(g_state.env, nullptr, js_callback, 1, &js_msg, &result);
+            napi_value result;
+            napi_status status = napi_call_function(g_state.env, nullptr, js_callback, 1, &js_msg, &result);
 
-        if (status != napi_ok) {
-            OH_LOG_ERROR(LOG_APP, "[OnAsyncMessage] napi_call_function failed: %d", status);
+            if (status != napi_ok) {
+                OH_LOG_ERROR(LOG_APP, "[OnAsyncMessage] napi_call_function failed: %d", status);
+            }
+        } else if (task.type == AsyncTask::Type::Render) {
+            PluginRender::BroadcastRobotPosition(task.x, task.y, task.z);
         }
     }
 }
@@ -265,4 +283,19 @@ static napi_module testModule = {
 extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
 {
     napi_module_register(&testModule);
+}
+
+void PostRobotPosition(float x, float y, float z)
+{
+    std::lock_guard<std::mutex> lock(g_state.mutex);
+    if (!g_state.initialized) {
+        return;
+    }
+    AsyncTask task;
+    task.type = AsyncTask::Type::Render;
+    task.x = x;
+    task.y = y;
+    task.z = z;
+    g_state.tasks.push(task);
+    uv_async_send(&g_state.async_handle);
 }

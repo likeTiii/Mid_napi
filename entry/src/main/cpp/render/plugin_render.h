@@ -36,6 +36,7 @@ public:
     }
     static PluginRender *GetInstance(std::string &id);
     static void Release(std::string &id);
+    static void BroadcastRobotPosition(float x, float y, float z);
     static napi_value NapiDrawPattern(napi_env env, napi_callback_info info);
     static napi_value TestGetXComponentStatus(napi_env env, napi_callback_info info);
     void Export(napi_env env, napi_value exports);

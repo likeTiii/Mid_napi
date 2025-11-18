@@ -23,6 +23,7 @@
 #include <ace/xcomponent/native_interface_xcomponent.h>
 #include <bits/alltypes.h>
 #include <unistd.h>
+#include <mutex>
 
 // 用于3D数学计算
 #include "../glm/glm.hpp"
@@ -41,6 +42,8 @@ public:
     void UpdateSize(int width, int height);
     void DrawGrid();
     void MouseTouchEvent(OH_NativeXComponent_MouseEvent mouseEvent); // 鼠标事件，适用于鼠标逻辑
+    void SetRobotPosition(float x, float y, float z);
+    void AdjustRobotPosition(float dx, float dy, float dz);
     inline bool IsContextReady() const
     {
         return eglDisplay_ != EGL_NO_DISPLAY && eglSurface_ != EGL_NO_SURFACE && eglContext_ != EGL_NO_CONTEXT;
@@ -114,10 +117,10 @@ private:
     GLuint robotVbo_ = 0;
     GLuint robotAxisVao_ = 0;
     GLuint robotAxisVbo_ = 0;
-public:
-    GLfloat robotX_ = 0.0;
-    GLfloat robotY_ = 0.0;
-    GLfloat robotZ_ = 0.0;
+    GLfloat robotX_ = 0.0f;
+    GLfloat robotY_ = 0.0f;
+    GLfloat robotZ_ = 0.0f;
+    std::mutex robotMutex_;
 };
 
 #endif // NATIVE_XCOMPONENT_EGL_CORE_H
