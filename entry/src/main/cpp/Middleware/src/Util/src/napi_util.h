@@ -9,8 +9,10 @@
 
 #include <string>
 #include <vector>
+#include <functional>
 
-std::string runCommand(const std::vector<std::string>& tokens);
+std::string runCommand(const std::vector<std::string>& tokens, const int index);
+void stopCommand(const std::string& op, const std::string& topic);
 
 
 #endif //MID_NAPI_NAPI_UTIL_H

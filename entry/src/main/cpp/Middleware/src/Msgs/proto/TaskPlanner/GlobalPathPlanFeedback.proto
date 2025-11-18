@@ -3,6 +3,6 @@ import "Geometry/PoseArray.proto";
 package TaskPlanner;
 
 message GlobalPathPlanFeedback {
-    Geometry.PoseArray pose_array = 1;
+    Geometry.PoseArray poseArray = 1;
 }
 

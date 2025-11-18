@@ -22,19 +22,19 @@ message NavSatFix {
     double altitude = 5;
 
     // 位置协方差 [m^2]，相对于通过报告位置的切平面定义。分量为东、北、上(ENU)，以行优先顺序排列。
-    repeated double position_covariance = 6; // 固定大小为9
+    repeated double positionCovariance = 6; // 固定大小为9
 
     // 定义如何解释position_covariance
     enum CovarianceType {
-        COVARIANCE_TYPE_UNKNOWN = 0;
-        COVARIANCE_TYPE_APPROXIMATED = 1;
-        COVARIANCE_TYPE_DIAGONAL_KNOWN = 2;
-        COVARIANCE_TYPE_KNOWN = 3;
+        COVARIANCETYPEUNKNOWN = 0;
+        COVARIANCETYPEAPPROXIMATED = 1;
+        COVARIANCETYPEDIAGONALKNOWN = 2;
+        COVARIANCETYPEKNOWN = 3;
     }
 
     // 如果类型是COVARIANCE_TYPE_UNKNOWN，则协方差矩阵包含全零。
     // 如果类型是COVARIANCE_TYPE_APPROXIMATED，则协方差矩阵可能已被驱动程序近似计算，例如由于传感器能力有限。
     // 如果类型是COVARIANCE_TYPE_DIAGONAL_KNOWN，则主对角线有效。
     // 如果类型是COVARIANCE_TYPE_KNOWN，则整个矩阵都有效。
-    CovarianceType position_covariance_type = 7;
+    CovarianceType positionCovarianceType = 7;
 }

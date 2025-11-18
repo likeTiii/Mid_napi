@@ -4,7 +4,7 @@ import "BuiltinInterfaces/Time.proto";
 package Nav;
 
 message MapMetaData {
-    BuiltinInterfaces.Time map_load_time = 1;
+    BuiltinInterfaces.Time mapLoadTime = 1;
     float resolution = 2;
     uint32 width = 3;
     uint32 height = 4;

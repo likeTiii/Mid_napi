@@ -18,6 +18,8 @@
 #include <EGL/egl.h>
 #include <EGL/eglext.h>
 #include <GLES3/gl3.h>
+#include <GLES3/gl31.h>
+#include <GLES3/gl32.h>
 #include <ace/xcomponent/native_interface_xcomponent.h>
 #include <bits/alltypes.h>
 #include <unistd.h>
@@ -56,8 +58,10 @@ private:
     GLuint CreateProgram(const char *vertexShader, const char *fragShader);
     void CreateGridResources(); // 地面网格资源
     void CreateAxisResources(); // 坐标轴资源
+    void CreateRobotResources();    //机器人资源
     void DeleteGridResources();
     void DeleteAxisResources();
+    void DeleteRobotResources();
 
 
 private:
@@ -104,11 +108,16 @@ private:
     GLint axisProjLoc_ = -1;
     GLint axisColorLoc_ = -1; // 用于传递颜色
 
-    // TODO：暂时用方块代替机器人（看后面能不能用模型替代）
+    // TODO：暂时用方块代替机器人，位置暂时写在这里，后面封装成类
     // 机器人3D渲染变量
-    GLuint robotProgram_ = 0;
     GLuint robotVao_ = 0;
     GLuint robotVbo_ = 0;
+    GLuint robotAxisVao_ = 0;
+    GLuint robotAxisVbo_ = 0;
+public:
+    GLfloat robotX_ = 0.0;
+    GLfloat robotY_ = 0.0;
+    GLfloat robotZ_ = 0.0;
 };
 
 #endif // NATIVE_XCOMPONENT_EGL_CORE_H

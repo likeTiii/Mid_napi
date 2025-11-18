@@ -1,6 +1,6 @@
-export const runCommand: (command: string, string) => string;
-//export const MasterService: (host: string) => string;
-//export const callNative: (a: number, b: number) => string;
+export const runCommand: (input: string, recordPath: string, index: number) => string;
+export const stopCommand: (command: string) => string;
+export const registerMessageCallback: ( cb: (message: string) => void) => void;
 
 
 

@@ -14,7 +14,6 @@ namespace Hnu::Middleware {
   }
   void NodeImpl::run() {
     boost::system::error_code ec;
-    //m_socket.connect("/data/storage/el2/base/files/master.sock",ec);
     tcp::resolver resolver(m_ioc);
     auto endpoints = resolver.resolve("127.0.0.1", "8080", ec);
     if (ec) {
@@ -94,10 +93,8 @@ namespace Hnu::Middleware {
       spdlog::error("signal error: {}",e.message());
       throw std::runtime_error("signal error");
     }
-    // m_signalSet.cancel();
     boost::system::error_code ec;
     m_socket.close();
-    //m_socket.connect("/data/storage/el2/base/files/master.sock",ec);
     tcp::resolver resolver(m_ioc);
     auto endpoints = resolver.resolve("127.0.0.1", "8080", ec);
     if (ec) {
@@ -143,11 +140,6 @@ namespace Hnu::Middleware {
     if (ec) return;
     asio::connect(m_socket, endpoints, ec);
     if (ec) return;
-    //m_socket.connect("/data/storage/el2/base/files/master.sock",ec);
-    // if(ec){
-    //   spdlog::error("connect error: {}",ec.message());
-    //   throw std::runtime_error("connect error");
-    // }
     beast::http::request<beast::http::empty_body> request;
     request.target("/node");
     request.method(beast::http::verb::delete_);
@@ -155,18 +147,10 @@ namespace Hnu::Middleware {
     request.prepare_payload();
     ec.clear();
     beast::http::write(m_socket,request,ec);
-    // if(ec){
-    //   spdlog::error("write error: {}",ec.message());
-    //   throw std::runtime_error("write error");
-    // }
     beast::http::response<beast::http::empty_body> response;
     beast::flat_buffer buffer;
     ec.clear();
     beast::http::read(m_socket,buffer,response,ec);
-    // if(ec){
-    //   spdlog::error("read error: {}",ec.message());
-    //   throw std::runtime_error("read error");
-    // }
     m_socket.close();
     std::exit(0);
   }

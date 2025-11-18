@@ -96,7 +96,7 @@ namespace Hnu::Middleware {
       queue->pop(message);
       //spdlog::debug("after pop, message size = {}", message.size());
       std::string messageStr(message.data(),message.size());
-        spdlog::debug("publish message: {}", message.data());
+        //spdlog::debug("publish message: {}", message.data());
       MiddlewareManager::transferMessage(m_topic_name,messageStr);
     }
     doEventfdRead();

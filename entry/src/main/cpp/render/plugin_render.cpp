@@ -273,8 +273,10 @@ void PluginRender::OnMouseEvent(OH_NativeXComponent *component, void *window) {
         } else {
             OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "PluginRender", "EGL context not ready in mouse event");
         }
+    } else if (mouseEvent.button == OH_NATIVEXCOMPONENT_RIGHT_BUTTON) {
+        eglCore_->robotX_ += 0.1;
+        eglCore_->DrawGrid();
     }
-
 }
 
 void PluginRender::RegisterCallback(OH_NativeXComponent *nativeXComponent) {

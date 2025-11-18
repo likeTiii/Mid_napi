@@ -3,8 +3,8 @@ import "Geometry/PoseArray.proto";
 package TaskPlanner;
 
 message GlobalPathPlan {
-    Geometry.PoseArray pose_array = 1;
-    bool stop_at_last_point = 2;
-    bool back_up = 3;
+    Geometry.PoseArray poseArray = 1;
+    bool stopAtLastPoint = 2;
+    bool backUp = 3;
 }
 

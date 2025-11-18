@@ -145,7 +145,8 @@ bool EGLCore::CreateEnvironment() {
     CreateGridResources();
     // 原点坐标系所需要的环境
     CreateAxisResources();
-    
+    //  机器人资源所需要的环境
+    CreateRobotResources();
     glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
     glEnable(GL_DEPTH_TEST);
     glLineWidth(2.0f); // 加粗线宽
@@ -183,6 +184,23 @@ void EGLCore::CreateGridResources() {
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
+}
+void EGLCore::DeleteGridResources() {
+    if (!IsContextReady()) {
+        return;
+    }
+    if (program_ != 0) {
+        glDeleteProgram(program_);
+        program_ = 0;
+    }
+    if (gridVao_ != 0) {
+        glDeleteVertexArrays(1, &gridVao_);
+        gridVao_ = 0;
+    }
+    if (gridVbo_ != 0) {
+        glDeleteBuffers(1, &gridVbo_);
+        gridVbo_ = 0;
+    }
 }
 /**
  * 坐标轴资源
@@ -255,6 +273,240 @@ void EGLCore::DeleteAxisResources() {
     }
 }
 /**
+ * 机器人资源
+ */
+void EGLCore::CreateRobotResources() {
+    // 复用坐标轴的着色器程序来绘制带颜色的物体，无需创建新的 program
+
+    // 1. 定义机器人（方块）的顶点数据 (1x1x1大小的立方体)
+    const float halfSize = 0.5f;
+    const std::vector<float> cubeVertices = {
+        // 每个面由两个三角形(6个顶点)组成, 共36个顶点
+        // 前面
+        -halfSize,
+        -halfSize,
+        halfSize,
+        halfSize,
+        -halfSize,
+        halfSize,
+        halfSize,
+        halfSize,
+        halfSize,
+        halfSize,
+        halfSize,
+        halfSize,
+        -halfSize,
+        halfSize,
+        halfSize,
+        -halfSize,
+        -halfSize,
+        halfSize,
+        // 后面
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        halfSize,
+        -halfSize,
+        halfSize,
+        halfSize,
+        -halfSize,
+        halfSize,
+        halfSize,
+        -halfSize,
+        halfSize,
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        // 左面
+        -halfSize,
+        halfSize,
+        halfSize,
+        -halfSize,
+        halfSize,
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        halfSize,
+        -halfSize,
+        halfSize,
+        halfSize,
+        // 右面
+        halfSize,
+        halfSize,
+        halfSize,
+        halfSize,
+        -halfSize,
+        halfSize,
+        halfSize,
+        -halfSize,
+        -halfSize,
+        halfSize,
+        -halfSize,
+        -halfSize,
+        halfSize,
+        halfSize,
+        -halfSize,
+        halfSize,
+        halfSize,
+        halfSize,
+        // 上面
+        -halfSize,
+        halfSize,
+        halfSize,
+        halfSize,
+        halfSize,
+        halfSize,
+        halfSize,
+        halfSize,
+        -halfSize,
+        halfSize,
+        halfSize,
+        -halfSize,
+        -halfSize,
+        halfSize,
+        -halfSize,
+        -halfSize,
+        halfSize,
+        halfSize,
+        // 下面
+        -halfSize,
+        -halfSize,
+        halfSize,
+        -halfSize,
+        -halfSize,
+        -halfSize,
+        halfSize,
+        -halfSize,
+        -halfSize,
+        halfSize,
+        -halfSize,
+        -halfSize,
+        halfSize,
+        -halfSize,
+        halfSize,
+        -halfSize,
+        -halfSize,
+        halfSize,
+    };
+
+    // 2. 为方块创建 VAO 和 VBO
+    glGenVertexArrays(1, &robotVao_);
+    glGenBuffers(1, &robotVbo_);
+    glBindVertexArray(robotVao_);
+    glBindBuffer(GL_ARRAY_BUFFER, robotVbo_);
+    glBufferData(GL_ARRAY_BUFFER, cubeVertices.size() * sizeof(float), cubeVertices.data(), GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    // 3. 定义机器人自身坐标轴的顶点数据
+    const float axisLength = 1.0f;
+    const float arrowheadSize = 0.08f;
+    const std::vector<float> robotAxisVertices = {
+        // X轴 (从方块中心延伸)
+        0.0f,
+        0.0f,
+        0.0f,
+        axisLength,
+        0.0f,
+        0.0f,
+        axisLength,
+        0.0f,
+        0.0f,
+        axisLength - arrowheadSize,
+        arrowheadSize,
+        0.0f,
+        axisLength,
+        0.0f,
+        0.0f,
+        axisLength - arrowheadSize,
+        -arrowheadSize,
+        0.0f,
+        // Y轴
+        0.0f,
+        0.0f,
+        0.0f,
+        0.0f,
+        axisLength,
+        0.0f,
+        0.0f,
+        axisLength,
+        0.0f,
+        arrowheadSize,
+        axisLength - arrowheadSize,
+        0.0f,
+        0.0f,
+        axisLength,
+        0.0f,
+        -arrowheadSize,
+        axisLength - arrowheadSize,
+        0.0f,
+        // Z轴
+        0.0f,
+        0.0f,
+        0.0f,
+        0.0f,
+        0.0f,
+        axisLength,
+        0.0f,
+        0.0f,
+        axisLength,
+        0.0f,
+        arrowheadSize,
+        axisLength - arrowheadSize,
+        0.0f,
+        0.0f,
+        axisLength,
+        0.0f,
+        -arrowheadSize,
+        axisLength - arrowheadSize,
+    };
+
+    // 4. 为机器人坐标轴创建 VAO 和 VBO
+    glGenVertexArrays(1, &robotAxisVao_);
+    glGenBuffers(1, &robotAxisVbo_);
+    glBindVertexArray(robotAxisVao_);
+    glBindBuffer(GL_ARRAY_BUFFER, robotAxisVbo_);
+    glBufferData(GL_ARRAY_BUFFER, robotAxisVertices.size() * sizeof(float), robotAxisVertices.data(), GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "EGLCore", "Robot Resources Created.");
+}
+void EGLCore::DeleteRobotResources() {
+    if (!IsContextReady()) {
+        return;
+    }
+    if (robotVao_ != 0) {
+        glDeleteVertexArrays(1, &robotVao_);
+        robotVao_ = 0;
+    }
+    if (robotVbo_ != 0) {
+        glDeleteBuffers(1, &robotVbo_);
+        robotVbo_ = 0;
+    }
+    if (robotAxisVao_ != 0) {
+        glDeleteVertexArrays(1, &robotAxisVao_);
+        robotAxisVao_ = 0;
+    }
+    if (robotAxisVbo_ != 0) {
+        glDeleteBuffers(1, &robotAxisVbo_);
+        robotAxisVbo_ = 0;
+    }
+}
+/**
  * 绘制地面网格
  */
 void EGLCore::DrawGrid() {
@@ -294,7 +546,7 @@ void EGLCore::DrawGrid() {
 
     glBindVertexArray(gridVao_);
     glDrawArrays(GL_LINES, 0, gridVertexCount_);
-
+    glBindVertexArray(0);
 
     // 绘制坐标轴 ---
     if (axisProgram_ == 0 || axisVao_ == 0) {
@@ -318,9 +570,35 @@ void EGLCore::DrawGrid() {
     // 绘制 Z 轴 (蓝色)
     glUniform4f(axisColorLoc_, 0.0f, 0.0f, 1.0f, 1.0f);
     glDrawArrays(GL_LINES, 12, 6);
-
     glBindVertexArray(0);
 
+    // 绘制机器人
+    //  机器人默认在原点，所以其模型矩阵是单位矩阵。
+    //  如果要移动机器人，需要修改这个矩阵 (例如: modelMatrix = glm::translate(modelMatrix, glm::vec3(x, y, z));)
+    glm::mat4 robotModelMatrix = glm::mat4(1.0f);
+    //红绿蓝方向。跟坐标位置与网格比例为2：1
+    robotModelMatrix = glm::translate(robotModelMatrix, glm::vec3(robotX_, robotY_, robotZ_));
+    // 传递机器人模型矩阵给着色器 (视图和投影矩阵不变)
+    glUniformMatrix4fv(axisModelLoc_, 1, GL_FALSE, glm::value_ptr(robotModelMatrix));
+    // 绘制机器人方块 (例如，使用黄色)
+    glUniform4f(axisColorLoc_, 1.0f, 1.0f, 0.0f, 1.0f);
+    glBindVertexArray(robotVao_);
+    glDrawArrays(GL_TRIANGLES, 0, 36); // 36个顶点
+    glBindVertexArray(0);
+    // 绘制机器人自身的坐标轴
+    glBindVertexArray(robotAxisVao_);
+    // X 轴 (红色)
+    glUniform4f(axisColorLoc_, 1.0f, 0.0f, 0.0f, 1.0f);
+    glDrawArrays(GL_LINES, 0, 6);
+    // Y 轴 (绿色)
+    glUniform4f(axisColorLoc_, 0.0f, 1.0f, 0.0f, 1.0f);
+    glDrawArrays(GL_LINES, 6, 6);
+    // Z 轴 (蓝色)
+    glUniform4f(axisColorLoc_, 0.0f, 0.0f, 1.0f, 1.0f);
+    glDrawArrays(GL_LINES, 12, 6);
+    // 全部绘制完毕后解绑VAO
+    glBindVertexArray(0);
+    
     eglSwapBuffers(eglDisplay_, eglSurface_);
 }
 
@@ -492,23 +770,7 @@ void EGLCore::UpdateSize(int width, int height) {
 }
 
 
-void EGLCore::DeleteGridResources() {
-    if (!IsContextReady()) {
-        return;
-    }
-    if (program_ != 0) {
-        glDeleteProgram(program_);
-        program_ = 0;
-    }
-    if (gridVao_ != 0) {
-        glDeleteVertexArrays(1, &gridVao_);
-        gridVao_ = 0;
-    }
-    if (gridVbo_ != 0) {
-        glDeleteBuffers(1, &gridVbo_);
-        gridVbo_ = 0;
-    }
-}
+
 
 void EGLCore::Release() {
     // 若上下文可用，先绑定当前上下文，删除 GL 资源
@@ -518,6 +780,7 @@ void EGLCore::Release() {
         }
         DeleteAxisResources();
         DeleteGridResources();
+        DeleteRobotResources();
         // 解绑上下文
         eglMakeCurrent(eglDisplay_, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
     }

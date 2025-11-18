@@ -31,6 +31,7 @@ namespace Hnu::Middleware {
   public:
     Node(const std::string &name);
     void run();
+    void stop();
     std::shared_ptr<Timer> createTimer(int interval, const std::function<void()>& callback);
     template <typename Message>
     std::shared_ptr<Publisher<Message>> createPublisher(const std::string& topic){
@@ -81,18 +82,6 @@ namespace Hnu::Middleware {
     }
     template <typename Message>
     std::shared_ptr<Publisher<Message>> createPublisher(const std::string& topic,const std::string& type){
-//       if (m_impl.containsPublisher(topic)) {
-//         return std::static_pointer_cast<Publisher<Message>>(m_impl.getPublisher(topic));
-//       }
-//       auto publish=std::make_shared<Publisher<Message>>(m_ioc,&m_impl,topic,type);
-//       if(!publish->run()){
-//         spdlog::error("error on create publish: {}",topic);
-//         throw std::runtime_error("error on create publish");
-//         // return nullptr;
-//       }
-//       m_impl.addPublisher(topic, std::static_pointer_cast<PublisherInterface>(publish));
-//       spdlog::debug("Create publish: {}",topic);
-//       return publish;
         try {
         OH_LOG_INFO(LOG_APP, "[createPublisher] Called, topic = %{public}s, type = %{public}s", topic.c_str(), type.c_str());
 

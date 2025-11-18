@@ -31,7 +31,7 @@ void MasterService(const std::string& hostName){
     spdlog::set_level(spdlog::level::debug); // 设置默认等级
     spdlog::info("== MasterService started ==");
 
-    Hnu::Interface::InterfaceManager::interfaceManager.init("host1");
+    Hnu::Interface::InterfaceManager::interfaceManager.init(hostName);
     Hnu::Interface::InterfaceManager::interfaceManager.run();
     Hnu::Middleware::MiddlewareManager::run();
 //     std::thread([]() {
