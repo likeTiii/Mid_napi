@@ -6,6 +6,7 @@
 #include <GLES3/gl3.h>
 #include <cmath>
 #include <cstdio>
+#include <algorithm>
 #include <hilog/log.h>
 
 #include "../common/common.h"
@@ -162,16 +163,18 @@ void EGLCore::CreateGridResources() {
     modelLoc_ = glGetUniformLocation(program_, "u_model");
     viewLoc_ = glGetUniformLocation(program_, "u_view");
     projLoc_ = glGetUniformLocation(program_, "u_projection");
-    // 2. 顶点网格数据
+    // 2. 顶点网格数据（位于 XY 平面，遵循右手坐标，Z 轴朝上）
     std::vector<float> vertices;
     const int GRID_SIZE = 20;
     const int DIVISIONS = 20;
-    const float step = (float)(GRID_SIZE * 2) / DIVISIONS;
+    const float step = static_cast<float>(GRID_SIZE * 2) / DIVISIONS;
 
     for (int i = 0; i <= DIVISIONS; ++i) {
         float pos = -GRID_SIZE + i * step;
-        vertices.insert(vertices.end(), {pos, 0.0f, (float)-GRID_SIZE, pos, 0.0f, (float)GRID_SIZE});
-        vertices.insert(vertices.end(), {(float)-GRID_SIZE, 0.0f, pos, (float)GRID_SIZE, 0.0f, pos});
+        // 与 Y 轴平行的线
+        vertices.insert(vertices.end(), {pos, -GRID_SIZE, 0.0f, pos, static_cast<float>(GRID_SIZE), 0.0f});
+        // 与 X 轴平行的线
+        vertices.insert(vertices.end(), {-GRID_SIZE, pos, 0.0f, static_cast<float>(GRID_SIZE), pos, 0.0f});
     }
     gridVertexCount_ = vertices.size() / 3;
     // 3. 创建缓冲对象和数组对象
@@ -232,10 +235,10 @@ void EGLCore::CreateAxisResources() {
         0.0f, axisLength, 0.0f, arrowheadSize, axisLength - arrowheadSize, 0.0f,  // 箭头一边
         0.0f, axisLength, 0.0f, -arrowheadSize, axisLength - arrowheadSize, 0.0f, // 箭头另一边
 
-        // Z轴 (蓝色) - 3条线段, 6个顶点
+        // Z轴 (蓝色) - 3条线段, 6个顶点（垂直向上）
         0.0f, 0.0f, 0.0f, 0.0f, 0.0f, axisLength,                                // 主干
-        0.0f, 0.0f, axisLength, 0.0f, arrowheadSize, axisLength - arrowheadSize, // 箭头一边
-        0.0f, 0.0f, axisLength, 0.0f, -arrowheadSize, axisLength - arrowheadSize // 箭头另一边
+        0.0f, 0.0f, axisLength, arrowheadSize, 0.0f, axisLength - arrowheadSize, // 箭头一边
+        0.0f, 0.0f, axisLength, -arrowheadSize, 0.0f, axisLength - arrowheadSize // 箭头另一边
     };
 
     // 3. 创建 VAO 和 VBO
@@ -529,13 +532,17 @@ void EGLCore::DrawGrid() {
     // TODO：对摄像机位置进行操控并绑定一些鼠标事件
     // 目前是固定的相机位置
     // glm::vec3 cameraPos = glm::vec3(15.0f, 15.0f, 20.0f); // 摄像机位置
+    float yawRad = glm::radians(cameraYaw_);
+    cameraPitch_ = std::clamp(cameraPitch_, -89.0f, 89.0f);
+    float pitchRad = glm::radians(cameraPitch_);
+
     glm::vec3 cameraPos;
-    cameraPos.x = cos(glm::radians(cameraYaw_)) * cos(glm::radians(cameraPitch_)) * cameraDistance_;
-    cameraPos.y = sin(glm::radians(cameraPitch_)) * cameraDistance_;
-    cameraPos.z = sin(glm::radians(cameraYaw_)) * cos(glm::radians(cameraPitch_)) * cameraDistance_;
+    cameraPos.x = cameraDistance_ * cos(pitchRad) * cos(yawRad);
+    cameraPos.y = cameraDistance_ * cos(pitchRad) * sin(yawRad);
+    cameraPos.z = cameraDistance_ * sin(pitchRad);
 
     glm::vec3 cameraTarget = glm::vec3(0.0f, 0.0f, 0.0f); // 观察目标（原点）
-    glm::vec3 upVector = glm::vec3(0.0f, 1.0f, 0.0f);     // 上方向，竖直方向
+    glm::vec3 upVector = glm::vec3(0.0f, 0.0f, 1.0f);     // 上方向：Z 轴
     viewMatrix_ = glm::lookAt(cameraPos, cameraTarget, upVector);
 
     // 绘制网格
@@ -579,14 +586,17 @@ void EGLCore::DrawGrid() {
     float robotX = 0.0f;
     float robotY = 0.0f;
     float robotZ = 0.0f;
+    glm::quat robotOrientation;
     {
         std::lock_guard<std::mutex> lock(robotMutex_);
         robotX = robotX_;
         robotY = robotY_;
         robotZ = robotZ_;
+        robotOrientation = robotOrientation_;
     }
     //红绿蓝方向。跟坐标位置与网格比例为2：1
     robotModelMatrix = glm::translate(robotModelMatrix, glm::vec3(robotX, robotY, robotZ));
+    robotModelMatrix *= glm::mat4_cast(robotOrientation);
     // 传递机器人模型矩阵给着色器 (视图和投影矩阵不变)
     glUniformMatrix4fv(axisModelLoc_, 1, GL_FALSE, glm::value_ptr(robotModelMatrix));
     // 绘制机器人方块 (例如，使用黄色)
@@ -650,6 +660,7 @@ void EGLCore::MouseTouchEvent(OH_NativeXComponent_MouseEvent mouseEvent) {
 
                 cameraYaw_ += xoffset;
                 cameraPitch_ += yoffset;
+                cameraPitch_ = std::clamp(cameraPitch_, -89.0f, 89.0f);
 
             }
             break;
@@ -679,6 +690,18 @@ void EGLCore::AdjustRobotPosition(float dx, float dy, float dz)
     robotX_ += dx;
     robotY_ += dy;
     robotZ_ += dz;
+}
+
+void EGLCore::SetRobotOrientation(float x, float y, float z, float w)
+{
+    std::lock_guard<std::mutex> lock(robotMutex_);
+    glm::quat q(w, x, y, z);
+    if (glm::length(q) == 0.0f) {
+        q = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);
+    } else {
+        q = glm::normalize(q);
+    }
+    robotOrientation_ = q;
 }
 GLuint EGLCore::LoadShader(GLenum type, const char *shaderSrc) {
     if ((type <= 0) || (shaderSrc == nullptr)) {

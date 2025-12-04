@@ -47,6 +47,7 @@ namespace fs = std::filesystem;
 #define LOG_TAG "util"
 
 extern "C" __attribute__((visibility("default"))) void PostRobotPosition(float x, float y, float z);
+extern "C" __attribute__((visibility("default"))) void PostRobotOrientation(float x, float y, float z, float w);
 // 声明NAPI层导出的函数（跨文件调用）
 extern "C" __attribute__((visibility("default"))) void SendToArkTS(int index, const std::string &message);
 
@@ -356,23 +357,37 @@ float ExtractScalar(const google::protobuf::Message &message, const google::prot
     }
 }
 
-//检测发送的是Geometry.Point就解析其xyz坐标重新绘制。
+//检测发送的是Geometry.Point/Quaternion就解析相关数据重新绘制。
 void TryUpdateRobotVisualization(const google::protobuf::Message &message)
 {
-    if (message.GetTypeName() != "Geometry.Point") {
-        return;
-    }
+    const std::string &typeName = message.GetTypeName();
     const auto *descriptor = message.GetDescriptor();
-    const auto *fieldX = descriptor->FindFieldByName("x");
-    const auto *fieldY = descriptor->FindFieldByName("y");
-    const auto *fieldZ = descriptor->FindFieldByName("z");
-    if (fieldX == nullptr || fieldY == nullptr || fieldZ == nullptr) {
-        return;
+
+    if (typeName == "Geometry.Point") {
+        const auto *fieldX = descriptor->FindFieldByName("x");
+        const auto *fieldY = descriptor->FindFieldByName("y");
+        const auto *fieldZ = descriptor->FindFieldByName("z");
+        if (fieldX == nullptr || fieldY == nullptr || fieldZ == nullptr) {
+            return;
+        }
+        float x = ExtractScalar(message, fieldX);
+        float y = ExtractScalar(message, fieldY);
+        float z = ExtractScalar(message, fieldZ);
+        PostRobotPosition(x, y, z);
+    } else if (typeName == "Geometry.Quaternion") {
+        const auto *fieldX = descriptor->FindFieldByName("x");
+        const auto *fieldY = descriptor->FindFieldByName("y");
+        const auto *fieldZ = descriptor->FindFieldByName("z");
+        const auto *fieldW = descriptor->FindFieldByName("w");
+        if (fieldX == nullptr || fieldY == nullptr || fieldZ == nullptr || fieldW == nullptr) {
+            return;
+        }
+        float x = ExtractScalar(message, fieldX);
+        float y = ExtractScalar(message, fieldY);
+        float z = ExtractScalar(message, fieldZ);
+        float w = ExtractScalar(message, fieldW);
+        PostRobotOrientation(x, y, z, w);
     }
-    float x = ExtractScalar(message, fieldX);
-    float y = ExtractScalar(message, fieldY);
-    float z = ExtractScalar(message, fieldZ);
-    PostRobotPosition(x, y, z);
 }
 
 } // namespace

@@ -290,6 +290,20 @@ void PluginRender::BroadcastRobotPosition(float x, float y, float z)
     }
 }
 
+void PluginRender::BroadcastRobotOrientation(float x, float y, float z, float w)
+{
+    for (auto &item : instance_) {
+        PluginRender *render = item.second;
+        if (render == nullptr || render->eglCore_ == nullptr) {
+            continue;
+        }
+        render->eglCore_->SetRobotOrientation(x, y, z, w);
+        if (render->eglCore_->IsContextReady()) {
+            render->eglCore_->DrawGrid();
+        }
+    }
+}
+
 void PluginRender::RegisterCallback(OH_NativeXComponent *nativeXComponent) {
     // 零初始化，避免未赋值成员指针悬空
     memset(&renderCallback_, 0, sizeof(renderCallback_));
