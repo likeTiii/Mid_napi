@@ -586,17 +586,14 @@ void EGLCore::DrawGrid() {
     float robotX = 0.0f;
     float robotY = 0.0f;
     float robotZ = 0.0f;
-    glm::quat robotOrientation;
     {
         std::lock_guard<std::mutex> lock(robotMutex_);
         robotX = robotX_;
         robotY = robotY_;
         robotZ = robotZ_;
-        robotOrientation = robotOrientation_;
     }
     //红绿蓝方向。跟坐标位置与网格比例为2：1
     robotModelMatrix = glm::translate(robotModelMatrix, glm::vec3(robotX, robotY, robotZ));
-    robotModelMatrix *= glm::mat4_cast(robotOrientation);
     // 传递机器人模型矩阵给着色器 (视图和投影矩阵不变)
     glUniformMatrix4fv(axisModelLoc_, 1, GL_FALSE, glm::value_ptr(robotModelMatrix));
     // 绘制机器人方块 (例如，使用黄色)
@@ -690,18 +687,6 @@ void EGLCore::AdjustRobotPosition(float dx, float dy, float dz)
     robotX_ += dx;
     robotY_ += dy;
     robotZ_ += dz;
-}
-
-void EGLCore::SetRobotOrientation(float x, float y, float z, float w)
-{
-    std::lock_guard<std::mutex> lock(robotMutex_);
-    glm::quat q(w, x, y, z);
-    if (glm::length(q) == 0.0f) {
-        q = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);
-    } else {
-        q = glm::normalize(q);
-    }
-    robotOrientation_ = q;
 }
 GLuint EGLCore::LoadShader(GLenum type, const char *shaderSrc) {
     if ((type <= 0) || (shaderSrc == nullptr)) {

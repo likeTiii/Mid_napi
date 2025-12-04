@@ -29,12 +29,11 @@
 namespace fs = std::filesystem;
 
 struct AsyncTask {
-    enum class Type { Message, RenderPosition, RenderOrientation } type = Type::Message;
+    enum class Type { Message, Render } type = Type::Message;
     std::string payload;
     float x = 0.0f;
     float y = 0.0f;
     float z = 0.0f;
-    float w = 1.0f;
 };
 
 // 全局状态
@@ -48,7 +47,6 @@ struct {
 } g_state;
 
 extern "C" __attribute__((visibility("default"))) void PostRobotPosition(float x, float y, float z);
-extern "C" __attribute__((visibility("default"))) void PostRobotOrientation(float x, float y, float z, float w);
 
 extern "C" __attribute__((visibility("default"))) void SendToArkTS(int index, const std::string &message);
 
@@ -104,10 +102,8 @@ static void OnAsyncMessage(uv_async_t *handle) {
             if (status != napi_ok) {
                 OH_LOG_ERROR(LOG_APP, "[OnAsyncMessage] napi_call_function failed: %d", status);
             }
-        } else if (task.type == AsyncTask::Type::RenderPosition) {
+        } else if (task.type == AsyncTask::Type::Render) {
             PluginRender::BroadcastRobotPosition(task.x, task.y, task.z);
-        } else if (task.type == AsyncTask::Type::RenderOrientation) {
-            PluginRender::BroadcastRobotOrientation(task.x, task.y, task.z, task.w);
         }
     }
 }
@@ -296,26 +292,10 @@ void PostRobotPosition(float x, float y, float z)
         return;
     }
     AsyncTask task;
-    task.type = AsyncTask::Type::RenderPosition;
+    task.type = AsyncTask::Type::Render;
     task.x = x;
     task.y = y;
     task.z = z;
-    g_state.tasks.push(task);
-    uv_async_send(&g_state.async_handle);
-}
-
-void PostRobotOrientation(float x, float y, float z, float w)
-{
-    std::lock_guard<std::mutex> lock(g_state.mutex);
-    if (!g_state.initialized) {
-        return;
-    }
-    AsyncTask task;
-    task.type = AsyncTask::Type::RenderOrientation;
-    task.x = x;
-    task.y = y;
-    task.z = z;
-    task.w = w;
     g_state.tasks.push(task);
     uv_async_send(&g_state.async_handle);
 }
