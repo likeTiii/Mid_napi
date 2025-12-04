@@ -268,11 +268,11 @@ void PluginRender::OnMouseEvent(OH_NativeXComponent *component, void *window) {
             "鼠标左键被按下了: x=%{public}f y=%{public}f action=%{public}d button=%{public}d",
             mouseEvent.x, mouseEvent.y, mouseEvent.action, mouseEvent.button);
         if (eglCore_ != nullptr && eglCore_->IsContextReady()) {
-            eglCore_->MouseTouchEvent(mouseEvent);
+        eglCore_->MouseTouchEvent(mouseEvent);
             eglCore_->DrawGrid();
         } else {
             OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "PluginRender", "EGL context not ready in mouse event");
-        }
+    }
     }
 }
 
@@ -284,6 +284,20 @@ void PluginRender::BroadcastRobotPosition(float x, float y, float z)
             continue;
         }
         render->eglCore_->SetRobotPosition(x, y, z);
+        if (render->eglCore_->IsContextReady()) {
+            render->eglCore_->DrawGrid();
+        }
+    }
+}
+
+void PluginRender::BroadcastRobotOrientation(float x, float y, float z, float w)
+{
+    for (auto &item : instance_) {
+        PluginRender *render = item.second;
+        if (render == nullptr || render->eglCore_ == nullptr) {
+            continue;
+        }
+        render->eglCore_->SetRobotOrientation(x, y, z, w);
         if (render->eglCore_->IsContextReady()) {
             render->eglCore_->DrawGrid();
         }

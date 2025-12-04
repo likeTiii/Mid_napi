@@ -47,6 +47,7 @@ namespace fs = std::filesystem;
 #define LOG_TAG "util"
 
 extern "C" __attribute__((visibility("default"))) void PostRobotPosition(float x, float y, float z);
+extern "C" __attribute__((visibility("default"))) void PostRobotOrientation(float x, float y, float z, float w);
 // 声明NAPI层导出的函数（跨文件调用）
 extern "C" __attribute__((visibility("default"))) void SendToArkTS(int index, const std::string &message);
 
@@ -359,20 +360,39 @@ float ExtractScalar(const google::protobuf::Message &message, const google::prot
 //检测发送的是Geometry.Point就解析其xyz坐标重新绘制。
 void TryUpdateRobotVisualization(const google::protobuf::Message &message)
 {
-    if (message.GetTypeName() != "Geometry.Point") {
-        return;
-    }
+    std::string typeName = message.GetTypeName();
     const auto *descriptor = message.GetDescriptor();
-    const auto *fieldX = descriptor->FindFieldByName("x");
-    const auto *fieldY = descriptor->FindFieldByName("y");
-    const auto *fieldZ = descriptor->FindFieldByName("z");
-    if (fieldX == nullptr || fieldY == nullptr || fieldZ == nullptr) {
-        return;
+    OH_LOG_INFO(LOG_APP, "[TryUpdateRobotVisualization] Processing message type: %{public}s", typeName.c_str());
+
+    if (typeName == "Geometry.Point") {
+        const auto *fieldX = descriptor->FindFieldByName("x");
+        const auto *fieldY = descriptor->FindFieldByName("y");
+        const auto *fieldZ = descriptor->FindFieldByName("z");
+        if (fieldX && fieldY && fieldZ) {
+            float x = ExtractScalar(message, fieldX);
+            float y = ExtractScalar(message, fieldY);
+            float z = ExtractScalar(message, fieldZ);
+            OH_LOG_INFO(LOG_APP, "[TryUpdateRobotVisualization] Updating Point: (%{public}f, %{public}f, %{public}f)", x, y, z);
+            PostRobotPosition(x, y, z);
+        } else {
+            OH_LOG_ERROR(LOG_APP, "[TryUpdateRobotVisualization] Geometry.Point missing fields");
+        }
+    } else if (typeName == "Geometry.Quaternion") {
+        const auto *fieldX = descriptor->FindFieldByName("x");
+        const auto *fieldY = descriptor->FindFieldByName("y");
+        const auto *fieldZ = descriptor->FindFieldByName("z");
+        const auto *fieldW = descriptor->FindFieldByName("w");
+        if (fieldX && fieldY && fieldZ && fieldW) {
+            float x = ExtractScalar(message, fieldX);
+            float y = ExtractScalar(message, fieldY);
+            float z = ExtractScalar(message, fieldZ);
+            float w = ExtractScalar(message, fieldW);
+            OH_LOG_INFO(LOG_APP, "[TryUpdateRobotVisualization] Updating Quaternion: (%{public}f, %{public}f, %{public}f, %{public}f)", x, y, z, w);
+            PostRobotOrientation(x, y, z, w);
+        } else {
+            OH_LOG_ERROR(LOG_APP, "[TryUpdateRobotVisualization] Geometry.Quaternion missing fields");
+        }
     }
-    float x = ExtractScalar(message, fieldX);
-    float y = ExtractScalar(message, fieldY);
-    float z = ExtractScalar(message, fieldZ);
-    PostRobotPosition(x, y, z);
 }
 
 } // namespace
@@ -383,8 +403,12 @@ void publish_message(std::shared_ptr<Hnu::Middleware::Node> node,
                      const T& message,
                      const std::string& message_type,
                      int index) {
+    OH_LOG_INFO(LOG_APP, "[publish_message] Creating publisher for topic: %{public}s", topic_name.c_str());
     auto publisher = node->createPublisher<google::protobuf::Message>(topic_name,message_type);
+    
+    OH_LOG_INFO(LOG_APP, "[publish_message] Publishing message");
     publisher->publish(message);
+    
     OH_LOG_ERROR(LOG_APP,"[PublishMessage] %{public}s",message.DebugString().c_str());
     //实时打印信息到可视化界面
     std::string debug_info = message.DebugString();
@@ -394,7 +418,9 @@ void publish_message(std::shared_ptr<Hnu::Middleware::Node> node,
     std::string log_message = "Publish " + debug_info + "(" + message.GetTypeName() + ") to " + topic_name ;
     // 直接调用NAPI层的发送函数（自动处理线程转发）
     SendToArkTS(index, log_message);
+    
     if constexpr (std::is_base_of<google::protobuf::Message, T>::value) {
+        OH_LOG_INFO(LOG_APP, "[publish_message] Calling TryUpdateRobotVisualization");
         TryUpdateRobotVisualization(message);
     }
 }
@@ -404,12 +430,15 @@ bool fill_field(google::protobuf::Message *message, const google::protobuf::Fiel
                 const Json::Value &value, std::ostringstream *log) {
     auto *reflection = message->GetReflection();
 
+    OH_LOG_INFO(LOG_APP, "[fill_field] Processing field: %{public}s, type: %{public}d, json_type: %{public}d", field->name().c_str(), field->cpp_type(), value.type());
+
     if (field->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) {
         // 子消息（如 Std.String / Std.Bool / Std.Header / Geometry.PointStamp）
         google::protobuf::Message *subMsg = reflection->MutableMessage(message, field);
 
         if (!value.isObject()) {
             *log << "[ERROR] Field " << field->name() << " expected JSON object but got " << value.toStyledString();
+            OH_LOG_ERROR(LOG_APP, "[fill_field] Error: Expected JSON object for field %{public}s", field->name().c_str());
             return false;
         }
 
@@ -420,6 +449,7 @@ bool fill_field(google::protobuf::Message *message, const google::protobuf::Fiel
 
             if (!childField) {
                 *log << "[ERROR] Child field not found: " << childName << std::endl;
+                OH_LOG_ERROR(LOG_APP, "[fill_field] Error: Child field not found: %{public}s", childName.c_str());
                 return false;
             }
 
@@ -438,9 +468,11 @@ bool fill_field(google::protobuf::Message *message, const google::protobuf::Fiel
         reflection->SetBool(message, field, value.asBool());
         break;
     case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
+        OH_LOG_INFO(LOG_APP, "[fill_field] Setting double for %{public}s: %{public}f", field->name().c_str(), value.asDouble());
         reflection->SetDouble(message, field, value.asDouble());
         break;
     case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
+        OH_LOG_INFO(LOG_APP, "[fill_field] Setting float for %{public}s: %{public}f", field->name().c_str(), value.asFloat());
         reflection->SetFloat(message, field, value.asFloat());
         break;
     case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
@@ -457,6 +489,7 @@ bool fill_field(google::protobuf::Message *message, const google::protobuf::Fiel
         break;
     default:
         *log << "[ERROR] Unsupported field type: " << field->cpp_type() << std::endl;
+        OH_LOG_ERROR(LOG_APP, "[fill_field] Unsupported field type: %{public}d", field->cpp_type());
         return false;
     }
 
@@ -502,29 +535,27 @@ std::shared_ptr<google::protobuf::Message> create_protobuf_message(/*std::shared
     Json::StreamWriterBuilder writer;
     std::string jsonStr = Json::writeString(writer, jsonData);
     OH_LOG_ERROR(LOG_APP, "[PublishMessage]Parsed JSON content: %{public}s", jsonStr.c_str());
-//     for (auto it = jsonData.begin(); it != jsonData.end() ; ++it) {
-//         const google::protobuf::FieldDescriptor* field = descriptor -> FindFieldByName(it.key().asString());
-//         if(field == nullptr){
-//            *log << "Protobuf type(" << message_type << ") is missing the "<< it.key().asString() << "field or has an incorrect type" << std::endl;
-//             return nullptr;
-//         }
-//         reflection -> SetString(message.get(), field, it -> asString());
-//     }
+
     for (auto it = jsonData.begin(); it != jsonData.end(); ++it) {
-        const google::protobuf::FieldDescriptor *field = descriptor->FindFieldByName(it.name());
+        std::string fieldName = it.name();
+        OH_LOG_INFO(LOG_APP, "[create_protobuf_message] Processing field: %{public}s", fieldName.c_str());
+        
+        const google::protobuf::FieldDescriptor *field = descriptor->FindFieldByName(fieldName);
 
         if (!field) {
-            *log << "Field not found in message: " << it.name() << std::endl;
+            *log << "Field not found in message: " << fieldName << std::endl;
+            OH_LOG_ERROR(LOG_APP, "[create_protobuf_message] Field not found: %{public}s", fieldName.c_str());
             return nullptr;
         }
 
         if (!fill_field(message.get(), field, *it, log)) {
             *log << "[ERROR] Failed to fill field: " << field->name() << std::endl;
+            OH_LOG_ERROR(LOG_APP, "[create_protobuf_message] Failed to fill field: %{public}s", fieldName.c_str());
             return nullptr;
         }
     }
-
-
+    
+    OH_LOG_INFO(LOG_APP, "[create_protobuf_message] Message created successfully: %{public}s", message->DebugString().c_str());
     return message;
 }
 

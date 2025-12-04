@@ -29,6 +29,7 @@
 #include "../glm/glm.hpp"
 #include "../glm/gtc/matrix_transform.hpp"
 #include "../glm/gtc/type_ptr.hpp" // 把 value_ptr 显式拉进来
+#include "../glm/gtc/quaternion.hpp" // 四元数支持
 
 class EGLCore {
 public:
@@ -43,6 +44,7 @@ public:
     void DrawGrid();
     void MouseTouchEvent(OH_NativeXComponent_MouseEvent mouseEvent); // 鼠标事件，适用于鼠标逻辑
     void SetRobotPosition(float x, float y, float z);   //设置机器人坐标
+    void SetRobotOrientation(float x, float y, float z, float w); // 设置机器人朝向
     void AdjustRobotPosition(float dx, float dy, float dz);     //增量位移
     inline bool IsContextReady() const
     {
@@ -120,6 +122,7 @@ private:
     GLfloat robotX_ = 3.0f;
     GLfloat robotY_ = 0.0f;
     GLfloat robotZ_ = 0.0f;
+    glm::quat robotOrientation_ = glm::quat(1.0f, 0.0f, 0.0f, 0.0f); // 默认无旋转 (w=1, x=0, y=0, z=0)
     std::mutex robotMutex_;
 };
 

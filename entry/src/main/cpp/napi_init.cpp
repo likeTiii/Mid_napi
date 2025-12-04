@@ -29,11 +29,12 @@
 namespace fs = std::filesystem;
 
 struct AsyncTask {
-    enum class Type { Message, Render } type = Type::Message;
+    enum class Type { Message, Render, Orientation } type = Type::Message;
     std::string payload;
     float x = 0.0f;
     float y = 0.0f;
     float z = 0.0f;
+    float w = 1.0f; // For quaternion
 };
 
 // 全局状态
@@ -47,6 +48,7 @@ struct {
 } g_state;
 
 extern "C" __attribute__((visibility("default"))) void PostRobotPosition(float x, float y, float z);
+extern "C" __attribute__((visibility("default"))) void PostRobotOrientation(float x, float y, float z, float w);
 
 extern "C" __attribute__((visibility("default"))) void SendToArkTS(int index, const std::string &message);
 
@@ -104,6 +106,8 @@ static void OnAsyncMessage(uv_async_t *handle) {
             }
         } else if (task.type == AsyncTask::Type::Render) {
             PluginRender::BroadcastRobotPosition(task.x, task.y, task.z);
+        } else if (task.type == AsyncTask::Type::Orientation) {
+            PluginRender::BroadcastRobotOrientation(task.x, task.y, task.z, task.w);
         }
     }
 }
@@ -296,6 +300,22 @@ void PostRobotPosition(float x, float y, float z)
     task.x = x;
     task.y = y;
     task.z = z;
+    g_state.tasks.push(task);
+    uv_async_send(&g_state.async_handle);
+}
+
+void PostRobotOrientation(float x, float y, float z, float w)
+{
+    std::lock_guard<std::mutex> lock(g_state.mutex);
+    if (!g_state.initialized) {
+        return;
+    }
+    AsyncTask task;
+    task.type = AsyncTask::Type::Orientation;
+    task.x = x;
+    task.y = y;
+    task.z = z;
+    task.w = w;
     g_state.tasks.push(task);
     uv_async_send(&g_state.async_handle);
 }

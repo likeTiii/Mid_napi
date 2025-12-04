@@ -586,14 +586,19 @@ void EGLCore::DrawGrid() {
     float robotX = 0.0f;
     float robotY = 0.0f;
     float robotZ = 0.0f;
+    glm::quat robotOrientation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);
     {
         std::lock_guard<std::mutex> lock(robotMutex_);
         robotX = robotX_;
         robotY = robotY_;
         robotZ = robotZ_;
+        robotOrientation = robotOrientation_;
     }
     //红绿蓝方向。跟坐标位置与网格比例为2：1
     robotModelMatrix = glm::translate(robotModelMatrix, glm::vec3(robotX, robotY, robotZ));
+    // 应用旋转
+    robotModelMatrix *= glm::mat4_cast(robotOrientation);
+    
     // 传递机器人模型矩阵给着色器 (视图和投影矩阵不变)
     glUniformMatrix4fv(axisModelLoc_, 1, GL_FALSE, glm::value_ptr(robotModelMatrix));
     // 绘制机器人方块 (例如，使用黄色)
@@ -679,6 +684,19 @@ void EGLCore::SetRobotPosition(float x, float y, float z)
     robotX_ = x;
     robotY_ = y;
     robotZ_ = z;
+}
+
+void EGLCore::SetRobotOrientation(float x, float y, float z, float w)
+{
+    std::lock_guard<std::mutex> lock(robotMutex_);
+    glm::quat q(w, x, y, z); // glm::quat 构造函数通常是 (w, x, y, z)
+    // 归一化四元数，防止无效旋转
+    if (glm::length(q) > 0.0f) {
+        q = glm::normalize(q);
+    } else {
+        q = glm::quat(1.0f, 0.0f, 0.0f, 0.0f); // 默认单位四元数
+    }
+    robotOrientation_ = q;
 }
 
 void EGLCore::AdjustRobotPosition(float dx, float dy, float dz)

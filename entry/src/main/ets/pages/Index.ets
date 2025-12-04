@@ -29,16 +29,16 @@ struct Index {
   @State logs: string[] = [];
 
   runCommand(index:number) {
-    let context = getContext(this) as common.UIAbilityContext;
-    let fileDir = context.filesDir; // 应用沙箱 files 目录
-    let recordPath = this.filesDir;
+    // let context = getContext(this) as common.UIAbilityContext;
+    // let fileDir = context.filesDir; // 应用沙箱 files 目录
+    // let recordPath = this.filesDir;
     try{
-      try {
-        fs.mkdirSync(recordPath);
-      } catch (err) {
-        // 如果目录已存在会抛异常，这里忽略
-        console.info("recordPath already exists: " + recordPath);
-      }
+      // try {
+      //   fs.mkdirSync(recordPath);
+      // } catch (err) {
+      //   // 如果目录已存在会抛异常，这里忽略
+      //   console.info("recordPath already exists: " + recordPath);
+      // }
       let result = nativeModule.runCommand(this.inputs[index], this.filesDir, index);
       if (typeof result === 'string'){
         this.results[index] = result ; //显示内容
