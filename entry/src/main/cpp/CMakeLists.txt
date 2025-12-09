@@ -46,6 +46,7 @@ file(GLOB_RECURSE PROTO_SRCS
 set(MIDDLEWARE_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/napi_init.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Middleware/src/Util/src/napi_util.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Middleware/src/Util/src/ParseDrawMsg.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Middleware/src/Node/src/Node.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Middleware/src/Node/src/NodeImpl.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Middleware/src/Node/src/Timer.cpp

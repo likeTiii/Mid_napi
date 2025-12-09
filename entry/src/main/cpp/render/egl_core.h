@@ -44,8 +44,9 @@ public:
     void DrawGrid();
     void MouseTouchEvent(OH_NativeXComponent_MouseEvent mouseEvent); // 鼠标事件，适用于鼠标逻辑
     void SetRobotPosition(float x, float y, float z);   //设置机器人坐标
+    void AdjustRobotPosition(float dx, float dy, float dz);       // 增量位移
     void SetRobotOrientation(float x, float y, float z, float w); // 设置机器人朝向
-    void AdjustRobotPosition(float dx, float dy, float dz);     //增量位移
+
     inline bool IsContextReady() const
     {
         return eglDisplay_ != EGL_NO_DISPLAY && eglSurface_ != EGL_NO_SURFACE && eglContext_ != EGL_NO_CONTEXT;
