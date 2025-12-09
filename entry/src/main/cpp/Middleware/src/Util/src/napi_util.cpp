@@ -357,7 +357,7 @@ float ExtractScalar(const google::protobuf::Message &message, const google::prot
     }
 }
 
-//检测发送的是Geometry.Point就解析其xyz坐标重新绘制。
+//检测发送的是Geometry.Point/Geometry.Quaternion就解析并重新绘制。
 void TryUpdateRobotVisualization(const google::protobuf::Message &message)
 {
     std::string typeName = message.GetTypeName();
@@ -391,6 +391,32 @@ void TryUpdateRobotVisualization(const google::protobuf::Message &message)
             PostRobotOrientation(x, y, z, w);
         } else {
             OH_LOG_ERROR(LOG_APP, "[TryUpdateRobotVisualization] Geometry.Quaternion missing fields");
+        }
+    }  else if (typeName == "Geometry.Pose") {
+        const auto *fieldPos = descriptor->FindFieldByName("position");
+        const auto *fieldOri = descriptor->FindFieldByName("orientation");
+        if (fieldPos && fieldOri) {
+            // 获取 position 和 orientation 子消息
+            const auto *reflection = message.GetReflection();
+            const auto &posMsg = reflection->GetMessage(message, fieldPos);
+            const auto &oriMsg = reflection->GetMessage(message, fieldOri);
+
+            // 提取坐标
+            const auto *posDesc = posMsg.GetDescriptor();
+            float px = ExtractScalar(posMsg, posDesc->FindFieldByName("x"));
+            float py = ExtractScalar(posMsg, posDesc->FindFieldByName("y"));
+            float pz = ExtractScalar(posMsg, posDesc->FindFieldByName("z"));
+
+            // 提取四元数
+            const auto *oriDesc = oriMsg.GetDescriptor();
+            float ox = ExtractScalar(oriMsg, oriDesc->FindFieldByName("x"));
+            float oy = ExtractScalar(oriMsg, oriDesc->FindFieldByName("y"));
+            float oz = ExtractScalar(oriMsg, oriDesc->FindFieldByName("z"));
+            float ow = ExtractScalar(oriMsg, oriDesc->FindFieldByName("w"));
+
+            // 更新机器人
+            PostRobotPosition(px, py, pz);
+            PostRobotOrientation(ox, oy, oz, ow);
         }
     }
 }
