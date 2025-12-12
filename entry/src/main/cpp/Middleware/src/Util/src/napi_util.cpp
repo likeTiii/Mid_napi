@@ -257,34 +257,6 @@ void subscribe_and_record(const std::string &topic_name,
     auto subscriber = record_node->createSubscriber<google::protobuf::Message>(
         topic_name, message_type, 
         [record_node, log_file_dir, message_type, index](std::shared_ptr<google::protobuf::Message> message) {
-//             std::string message_value = message->DebugString();
-//             if (!message_value.empty() && message_value.back() == '\n') {
-//                 message_value.pop_back();
-//             }
-//             std::string logStr = "Record data (" + message_type + "): " + message_value;
-//             OH_LOG_DEBUG(LOG_APP, "[bagrecord] %{public}s", logStr.c_str());
-//             SendToArkTS(index,logStr);
-//             auto now = std::chrono::steady_clock::now();
-//             static std::unordered_map<std::string, std::chrono::steady_clock::time_point> start_times;
-//             auto &start_time = start_times[log_file_dir];
-//             if (start_time.time_since_epoch().count() == 0) start_time = now;
-//
-//             double elapsed_sec = std::chrono::duration<double>(now - start_time).count();
-//             std::string message_value_json;
-//             size_t pos = message_value.find("data:");
-//             if (pos != std::string::npos) {
-//                 std::string value = message_value.substr(pos + 6);
-//                 if (!value.empty() && value.back() == '\n') value.pop_back();
-//                 message_value_json = "{\"" + message_value.substr(pos, 4) + "\":" + value + "}";
-//             }
-//
-//             std::ofstream log_file(log_file_dir, std::ios::app);
-//             if (log_file.is_open()) {
-//                 log_file << elapsed_sec << "|" << message_value_json << "\n";
-//                 log_file.close();
-//             } else {
-//                 OH_LOG_ERROR(LOG_APP, "Failed to open log file: %{public}s", log_file_dir.c_str());
-//             }
             std::string message_value_json;
             google::protobuf::util::JsonPrintOptions options;
             //options.preserve_proto_field_names = true;//保留原proto字段名
@@ -347,8 +319,78 @@ void publish_message(std::shared_ptr<Hnu::Middleware::Node> node,
 //protobuf反射数据类型
 bool fill_field(google::protobuf::Message *message, const google::protobuf::FieldDescriptor *field,
                 const Json::Value &value, std::ostringstream *log) {
-    auto *reflection = message->GetReflection();
+    // === 处理 repeated 字段 ===
+    if (field->is_repeated()) {
+        if (!value.isArray()) {
+            *log << "[ERROR] Field " << field->name()
+                 << " is repeated but JSON is not array: " << value.toStyledString();
+            return false;
+        }
 
+        auto *reflection = message->GetReflection();
+
+        // 遍历 JSON 数组
+        for (auto &item : value) {
+            if (field->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) {
+                google::protobuf::Message *subMsg = reflection->AddMessage(message, field);
+
+                if (!item.isObject()) {
+                    *log << "[ERROR] JSON element in repeated message is not object: " << item.toStyledString();
+                    return false;
+                }
+
+                // 递归填充子 message
+                for (auto it = item.begin(); it != item.end(); ++it) {
+                    std::string childName = it.name();
+                    const auto *childField = subMsg->GetDescriptor()->FindFieldByName(childName);
+
+                    if (!childField) {
+                        *log << "[ERROR] Child field not found: " << childName;
+                        return false;
+                    }
+
+                    if (!fill_field(subMsg, childField, *it, log))
+                        return false;
+                }
+            } else {
+                switch (field->cpp_type()) {
+                    case google::protobuf::FieldDescriptor::CPPTYPE_STRING:
+                        reflection->AddString(message, field, item.asString());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_BOOL:
+                        reflection->AddBool(message, field, item.asBool());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
+                        reflection->AddDouble(message, field, item.asDouble());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
+                        reflection->AddFloat(message, field, item.asFloat());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
+                        reflection->AddInt32(message, field, item.asInt());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_INT64:
+                        reflection->AddInt64(message, field, item.asInt64());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_UINT32:
+                        reflection->AddUInt32(message, field, item.asUInt());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
+                        reflection->AddUInt64(message, field, item.asUInt64());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_ENUM:
+                        reflection->AddEnumValue(message, field, item.asInt());
+                        break;
+                    default:
+                        *log << "[ERROR] Unsupported field type: " << field->cpp_type() << std::endl;
+                        return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    auto *reflection = message->GetReflection();
     if (field->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) {
         // 子消息（如 Std.String / Std.Bool / Std.Header / Geometry.PointStamp）
         google::protobuf::Message *subMsg = reflection->MutableMessage(message, field);
@@ -400,6 +442,9 @@ bool fill_field(google::protobuf::Message *message, const google::protobuf::Fiel
     case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
         reflection->SetUInt64(message, field, value.asUInt64());
         break;
+    case google::protobuf::FieldDescriptor::CPPTYPE_ENUM:
+        reflection->SetEnumValue(message, field, value.asInt());
+        break;
     default:
         *log << "[ERROR] Unsupported field type: " << field->cpp_type() << std::endl;
         return false;
@@ -447,14 +492,7 @@ std::shared_ptr<google::protobuf::Message> create_protobuf_message(/*std::shared
     Json::StreamWriterBuilder writer;
     std::string jsonStr = Json::writeString(writer, jsonData);
     OH_LOG_ERROR(LOG_APP, "[PublishMessage]Parsed JSON content: %{public}s", jsonStr.c_str());
-//     for (auto it = jsonData.begin(); it != jsonData.end() ; ++it) {
-//         const google::protobuf::FieldDescriptor* field = descriptor -> FindFieldByName(it.key().asString());
-//         if(field == nullptr){
-//            *log << "Protobuf type(" << message_type << ") is missing the "<< it.key().asString() << "field or has an incorrect type" << std::endl;
-//             return nullptr;
-//         }
-//         reflection -> SetString(message.get(), field, it -> asString());
-//     }
+
     for (auto it = jsonData.begin(); it != jsonData.end(); ++it) {
         const google::protobuf::FieldDescriptor *field = descriptor->FindFieldByName(it.name());
 
