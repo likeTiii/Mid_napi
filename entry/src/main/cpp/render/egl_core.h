@@ -24,7 +24,7 @@
 #include <bits/alltypes.h>
 #include <unistd.h>
 #include <mutex>
-
+#include <vector>
 // 用于3D数学计算
 #include "../glm/glm.hpp"
 #include "../glm/gtc/matrix_transform.hpp"
@@ -46,7 +46,8 @@ public:
     void SetRobotPosition(float x, float y, float z);   //设置机器人坐标
     void AdjustRobotPosition(float dx, float dy, float dz);       // 增量位移
     void SetRobotOrientation(float x, float y, float z, float w); // 设置机器人朝向
-
+    void SetGlobalPath(const std::vector<float> &pathPoints);     // 设置全局路径
+    
     inline bool IsContextReady() const
     {
         return eglDisplay_ != EGL_NO_DISPLAY && eglSurface_ != EGL_NO_SURFACE && eglContext_ != EGL_NO_CONTEXT;
@@ -68,6 +69,10 @@ private:
     void DeleteGridResources();
     void DeleteAxisResources();
     void DeleteRobotResources();
+    // 路径相关资源
+    void CreatePathResources();
+    void DeletePathResources();
+    void UpdatePathData();
 
 
 private:
@@ -125,6 +130,12 @@ private:
     GLfloat robotZ_ = 0.0f;
     glm::quat robotOrientation_ = glm::quat(1.0f, 0.0f, 0.0f, 0.0f); // 默认无旋转 (w=1, x=0, y=0, z=0)
     std::mutex robotMutex_;
+    // 路径绘制相关变量
+    GLuint pathVao_ = 0;
+    GLuint pathVbo_ = 0;
+    std::vector<float> pathPoints_; // 存储路径点 (x, y, z)
+    std::mutex pathMutex_;
+    bool pathUpdateNeeded_ = false;
 };
 
 #endif // NATIVE_XCOMPONENT_EGL_CORE_H

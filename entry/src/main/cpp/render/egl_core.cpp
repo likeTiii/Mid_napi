@@ -148,6 +148,8 @@ bool EGLCore::CreateEnvironment() {
     CreateAxisResources();
     //  机器人资源所需要的环境
     CreateRobotResources();
+    // 创建路径资源
+    CreatePathResources();
     glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
     glEnable(GL_DEPTH_TEST);
     glLineWidth(2.0f); // 加粗线宽
@@ -619,14 +621,38 @@ void EGLCore::DrawGrid() {
     glDrawArrays(GL_LINES, 12, 6);
     // 全部绘制完毕后解绑VAO
     glBindVertexArray(0);
-    
+    // 绘制路径 (如果有)
+    if (pathVao_ != 0) {
+        // 尝试更新数据（如果有新数据）
+        UpdatePathData();
+
+        // 渲染路径
+        std::lock_guard<std::mutex> lock(pathMutex_);
+        if (!pathPoints_.empty()) {
+            // 复用坐标轴的着色器（纯色绘制）
+            glUseProgram(axisProgram_);
+
+            // 使用单位矩阵（路径点已经是世界坐标）
+            glm::mat4 identityMatrix = glm::mat4(1.0f);
+            glUniformMatrix4fv(axisModelLoc_, 1, GL_FALSE, glm::value_ptr(identityMatrix));
+            glUniformMatrix4fv(axisViewLoc_, 1, GL_FALSE, glm::value_ptr(viewMatrix_));
+            glUniformMatrix4fv(axisProjLoc_, 1, GL_FALSE, glm::value_ptr(projectionMatrix_));
+
+            // 设置颜色（例如紫色）
+            glUniform4f(axisColorLoc_, 1.0f, 0.0f, 1.0f, 1.0f);
+
+            glBindVertexArray(pathVao_);
+            glDrawArrays(GL_LINE_STRIP, 0, pathPoints_.size() / 3);
+            glBindVertexArray(0);
+        }
+    }
     eglSwapBuffers(eglDisplay_, eglSurface_);
 }
 
 
     // egl_core.cpp
 void EGLCore::MouseTouchEvent(OH_NativeXComponent_MouseEvent mouseEvent) {
-    // 使用元素局部坐标，避免跨屏坐标带来的大跨度抖动
+    // 使用component元素局部坐标，避免跨屏坐标带来的大跨度抖动
     float x = mouseEvent.x;
     float y = mouseEvent.y;
     
@@ -689,7 +715,7 @@ void EGLCore::SetRobotPosition(float x, float y, float z)
 void EGLCore::SetRobotOrientation(float x, float y, float z, float w)
 {
     std::lock_guard<std::mutex> lock(robotMutex_);
-    glm::quat q(w, x, y, z); // glm::quat 构造函数通常是 (w, x, y, z)
+    glm::quat q(w, x, y, z); // glm::quat 构造函数是 (w, x, y, z)
     // 归一化四元数，防止无效旋转
     if (glm::length(q) > 0.0f) {
         q = glm::normalize(q);
@@ -838,22 +864,22 @@ void EGLCore::Release() {
 
     if (eglDisplay_ != EGL_NO_DISPLAY && eglSurface_ != EGL_NO_SURFACE) {
         if (!eglDestroySurface(eglDisplay_, eglSurface_)) {
-            OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "EGLCore", "Release eglDestroySurface failed");
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "EGLCore", "Release eglDestroySurface failed");
         }
         eglSurface_ = EGL_NO_SURFACE;
     }
 
     if (eglDisplay_ != EGL_NO_DISPLAY && eglContext_ != EGL_NO_CONTEXT) {
         if (!eglDestroyContext(eglDisplay_, eglContext_)) {
-            OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "EGLCore", "Release eglDestroyContext failed");
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "EGLCore", "Release eglDestroyContext failed");
         }
         eglContext_ = EGL_NO_CONTEXT;
     }
 
     if (eglDisplay_ != EGL_NO_DISPLAY) {
         if (!eglTerminate(eglDisplay_)) {
-            OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "EGLCore", "Release eglTerminate failed");
-        }
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "EGLCore", "Release eglTerminate failed");
+    }
         eglDisplay_ = EGL_NO_DISPLAY;
     }
 }

@@ -29,12 +29,13 @@
 namespace fs = std::filesystem;
 
 struct AsyncTask {
-    enum class Type { Message, Render, Orientation } type = Type::Message;
+    enum class Type { Message, Render, Orientation, Path } type = Type::Message;
     std::string payload;
     float x = 0.0f;
     float y = 0.0f;
     float z = 0.0f;
     float w = 1.0f; // For quaternion
+    std::vector<float> pathPoints; // For path
 };
 
 // 全局状态
@@ -49,7 +50,7 @@ struct {
 
 extern "C" __attribute__((visibility("default"))) void PostRobotPosition(float x, float y, float z);
 extern "C" __attribute__((visibility("default"))) void PostRobotOrientation(float x, float y, float z, float w);
-
+extern "C" __attribute__((visibility("default"))) void PostGlobalPath(const std::vector<float> &pathPoints);
 extern "C" __attribute__((visibility("default"))) void SendToArkTS(int index, const std::string &message);
 
 // C++ -> ArkTS 消息发送
@@ -108,8 +109,22 @@ static void OnAsyncMessage(uv_async_t *handle) {
             PluginRender::BroadcastRobotPosition(task.x, task.y, task.z);
         } else if (task.type == AsyncTask::Type::Orientation) {
             PluginRender::BroadcastRobotOrientation(task.x, task.y, task.z, task.w);
+        } else if (task.type == AsyncTask::Type::Path) {
+            PluginRender::BroadcastGlobalPath(task.pathPoints);
         }
     }
+}
+
+void PostGlobalPath(const std::vector<float> &pathPoints) {
+    std::lock_guard<std::mutex> lock(g_state.mutex);
+    if (!g_state.initialized) {
+        return;
+    }
+    AsyncTask task;
+    task.type = AsyncTask::Type::Path;
+    task.pathPoints = pathPoints;
+    g_state.tasks.push(task);
+    uv_async_send(&g_state.async_handle);
 }
 
 // 注册 ArkTS 回调函数

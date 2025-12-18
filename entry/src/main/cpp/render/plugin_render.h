@@ -20,7 +20,7 @@
 #include <napi/native_api.h>
 #include <string>
 #include <unordered_map>
-
+#include <vector>
 #include "egl_core.h"
 
 
@@ -38,6 +38,8 @@ public:
     static void Release(std::string &id);
     static void BroadcastRobotPosition(float x, float y, float z);      //广播机器人的最新位置，并重绘
     static void BroadcastRobotOrientation(float x, float y, float z, float w); // 广播机器人朝向
+    static void BroadcastGlobalPath(const std::vector<float> &pathPoints);     // 广播路径
+
     static napi_value NapiDrawPattern(napi_env env, napi_callback_info info);
     static napi_value TestGetXComponentStatus(napi_env env, napi_callback_info info);
     void Export(napi_env env, napi_value exports);

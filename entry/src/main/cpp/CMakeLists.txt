@@ -56,7 +56,9 @@ set(OPENGL_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/napi_init.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/manager/plugin_manager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/render/egl_core.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/render/egl_path.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/render/plugin_render.cpp
+     ${CMAKE_CURRENT_SOURCE_DIR}/render/plugin_path.cpp
 )
 
 add_library(entry SHARED

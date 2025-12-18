@@ -360,17 +360,84 @@ void publish_message(std::shared_ptr<Hnu::Middleware::Node> node,
 //protobuf反射数据类型
 bool fill_field(google::protobuf::Message *message, const google::protobuf::FieldDescriptor *field,
                 const Json::Value &value, std::ostringstream *log) {
+    // === 处理 repeated 字段 ===
+    if (field->is_repeated()) {
+        if (!value.isArray()) {
+            *log << "[ERROR] Field " << field->name()
+                 << " is repeated but JSON is not array: " << value.toStyledString();
+            return false;
+        }
+
+        auto *reflection = message->GetReflection();
+
+        // 遍历 JSON 数组
+        for (auto &item : value) {
+            if (field->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) {
+                google::protobuf::Message *subMsg = reflection->AddMessage(message, field);
+
+                if (!item.isObject()) {
+                    *log << "[ERROR] JSON element in repeated message is not object: " << item.toStyledString();
+                    return false;
+                }
+
+                // 递归填充子 message
+                for (auto it = item.begin(); it != item.end(); ++it) {
+                    std::string childName = it.name();
+                    const auto *childField = subMsg->GetDescriptor()->FindFieldByName(childName);
+
+                    if (!childField) {
+                        *log << "[ERROR] Child field not found: " << childName;
+                        return false;
+                    }
+
+                    if (!fill_field(subMsg, childField, *it, log))
+                        return false;
+                }
+            } else {
+                switch (field->cpp_type()) {
+                    case google::protobuf::FieldDescriptor::CPPTYPE_STRING:
+                        reflection->AddString(message, field, item.asString());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_BOOL:
+                        reflection->AddBool(message, field, item.asBool());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
+                        reflection->AddDouble(message, field, item.asDouble());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
+                        reflection->AddFloat(message, field, item.asFloat());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
+                        reflection->AddInt32(message, field, item.asInt());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_INT64:
+                        reflection->AddInt64(message, field, item.asInt64());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_UINT32:
+                        reflection->AddUInt32(message, field, item.asUInt());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
+                        reflection->AddUInt64(message, field, item.asUInt64());
+                        break;
+                    case google::protobuf::FieldDescriptor::CPPTYPE_ENUM:
+                        reflection->AddEnumValue(message, field, item.asInt());
+                        break;
+                    default:
+                        *log << "[ERROR] Unsupported field type: " << field->cpp_type() << std::endl;
+                        return false;
+                }
+            }
+        }
+        return true;
+    }
+    
     auto *reflection = message->GetReflection();
-
-    OH_LOG_INFO(LOG_APP, "[fill_field] Processing field: %{public}s, type: %{public}d, json_type: %{public}d", field->name().c_str(), field->cpp_type(), value.type());
-
     if (field->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) {
         // 子消息（如 Std.String / Std.Bool / Std.Header / Geometry.PointStamp）
         google::protobuf::Message *subMsg = reflection->MutableMessage(message, field);
 
         if (!value.isObject()) {
             *log << "[ERROR] Field " << field->name() << " expected JSON object but got " << value.toStyledString();
-            OH_LOG_ERROR(LOG_APP, "[fill_field] Error: Expected JSON object for field %{public}s", field->name().c_str());
             return false;
         }
 
@@ -381,7 +448,6 @@ bool fill_field(google::protobuf::Message *message, const google::protobuf::Fiel
 
             if (!childField) {
                 *log << "[ERROR] Child field not found: " << childName << std::endl;
-                OH_LOG_ERROR(LOG_APP, "[fill_field] Error: Child field not found: %{public}s", childName.c_str());
                 return false;
             }
 
@@ -400,11 +466,9 @@ bool fill_field(google::protobuf::Message *message, const google::protobuf::Fiel
         reflection->SetBool(message, field, value.asBool());
         break;
     case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
-        OH_LOG_INFO(LOG_APP, "[fill_field] Setting double for %{public}s: %{public}f", field->name().c_str(), value.asDouble());
         reflection->SetDouble(message, field, value.asDouble());
         break;
     case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
-        OH_LOG_INFO(LOG_APP, "[fill_field] Setting float for %{public}s: %{public}f", field->name().c_str(), value.asFloat());
         reflection->SetFloat(message, field, value.asFloat());
         break;
     case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
@@ -419,9 +483,11 @@ bool fill_field(google::protobuf::Message *message, const google::protobuf::Fiel
     case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
         reflection->SetUInt64(message, field, value.asUInt64());
         break;
+    case google::protobuf::FieldDescriptor::CPPTYPE_ENUM:
+        reflection->SetEnumValue(message, field, value.asInt());
+        break;
     default:
         *log << "[ERROR] Unsupported field type: " << field->cpp_type() << std::endl;
-        OH_LOG_ERROR(LOG_APP, "[fill_field] Unsupported field type: %{public}d", field->cpp_type());
         return false;
     }
 

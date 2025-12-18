@@ -7,6 +7,7 @@
 #include <google/protobuf/reflection.h>
 #include "hilog/log.h"
 #include <string>
+#include <vector>
 
 #undef LOG_DOMAIN
 #undef LOG_TAG
@@ -16,6 +17,7 @@
 // 声明NAPI层导出的函数（跨文件调用）
 extern "C" __attribute__((visibility("default"))) void PostRobotPosition(float x, float y, float z);
 extern "C" __attribute__((visibility("default"))) void PostRobotOrientation(float x, float y, float z, float w);
+extern "C" __attribute__((visibility("default"))) void PostGlobalPath(const std::vector<float> &pathPoints);
 
 namespace {
 
@@ -118,7 +120,58 @@ void HandleGeometryPose(const google::protobuf::Message &message) {
 }
 
 } // namespace
+void HandleTaskPlannerGlobalPath(const google::protobuf::Message &message) {
+const auto *descriptor = message.GetDescriptor();
 
+// 1. 获取 PoseArray
+const auto *fieldPoseArray = descriptor->FindFieldByName("poseArray");
+if (!fieldPoseArray) {
+    OH_LOG_ERROR(LOG_APP, "[HandleTaskPlannerGlobalPath] Missing poseArray field");
+    return;
+}
+const auto *reflection = message.GetReflection();
+const auto &poseArrayMsg = reflection->GetMessage(message, fieldPoseArray);
+
+// 2. 获取 poses 数组
+const auto *poseArrayDesc = poseArrayMsg.GetDescriptor();
+const auto *fieldPoses = poseArrayDesc->FindFieldByName("poses");
+if (!fieldPoses || !fieldPoses->is_repeated()) {
+    OH_LOG_ERROR(LOG_APP, "[HandleTaskPlannerGlobalPath] Missing poses repeated field");
+    return;
+}
+
+const auto *poseArrayReflection = poseArrayMsg.GetReflection();
+int count = poseArrayReflection->FieldSize(poseArrayMsg, fieldPoses);
+
+std::vector<float> pathPoints;
+pathPoints.reserve(count * 3);
+
+OH_LOG_INFO(LOG_APP, "[HandleTaskPlannerGlobalPath] Processing path with %{public}d points", count);
+
+for (int i = 0; i < count; ++i) {
+    const auto &poseMsg = poseArrayReflection->GetRepeatedMessage(poseArrayMsg, fieldPoses, i);
+    const auto *poseDesc = poseMsg.GetDescriptor();
+    const auto *fieldPos = poseDesc->FindFieldByName("position");
+
+    if (fieldPos) {
+        const auto *poseReflection = poseMsg.GetReflection();
+        const auto &posMsg = poseReflection->GetMessage(poseMsg, fieldPos);
+        const auto *posDesc = posMsg.GetDescriptor();
+
+        float px = ExtractScalar(posMsg, posDesc->FindFieldByName("x"));
+        float py = ExtractScalar(posMsg, posDesc->FindFieldByName("y"));
+        float pz = ExtractScalar(posMsg, posDesc->FindFieldByName("z"));
+
+        pathPoints.push_back(px);
+        pathPoints.push_back(py);
+        pathPoints.push_back(pz);
+    }
+}
+
+if (!pathPoints.empty()) {
+    PostGlobalPath(pathPoints);
+}
+}
 void TryUpdateRobotVisualization(const google::protobuf::Message &message)
 {
     std::string typeName = message.GetTypeName();
@@ -130,5 +183,7 @@ void TryUpdateRobotVisualization(const google::protobuf::Message &message)
         HandleGeometryQuaternion(message);
     } else if (typeName == "Geometry.Pose") {
         HandleGeometryPose(message);
+    } else if (typeName == "TaskPlanner.GlobalPathPlanFeedback") {
+        HandleTaskPlannerGlobalPath(message);
     }
 }
